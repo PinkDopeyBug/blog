@@ -60,8 +60,6 @@ permalink: /article/20250618/
 
 等结果ing......
 
-  
-  
-作者：呆虫仙尊  
-链接：[https://www.nowcoder.com/discuss/764089274013618176?sourceSSR=users](https://www.nowcoder.com/discuss/764089274013618176?sourceSSR=users)  
+作者：呆虫仙尊
+链接：[https://www.nowcoder.com/discuss/764089274013618176?sourceSSR=users](https://www.nowcoder.com/discuss/764089274013618176?sourceSSR=users)
 来源：牛客网

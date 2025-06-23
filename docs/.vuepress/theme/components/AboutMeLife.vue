@@ -1,8 +1,8 @@
 <template>
   <div class="about-me-card-bg vp-blog-post-item about-me-life">
     <div style="margin-left: 20px">
-    <p class="about-me-card-title-normal">能力</p>
-    <p class="about-me-card-text-big">技能熟练度</p>
+    <p class="about-me-card-title-normal">比例</p>
+    <p class="about-me-card-text-big">技术栈占比</p>
     </div>
   <div ref="chartRef" class="chart-container"></div>
   </div>
