@@ -1,0 +1,39 @@
+import{_ as t,c as s,a,o as d}from"./app-CEcM0piI.js";const i={};function e(l,n){return d(),s("div",null,n[0]||(n[0]=[a(`<table><thead><tr><th>组件</th><th>名称</th><th>作用</th></tr></thead><tbody><tr><td>Combo Box</td><td>编辑组合框<br></td><td>QComboBox继承 QWidget 类，被 QFontComboBox 类继承。允许用户从下拉列表中选择一个选项。它可以是可编辑的，允许用户输入一个值，也可以是只读的。</td></tr><tr><td>Font Combo Box</td><td>字体组合框</td><td>QFontComboBox 继承 QComboBox。是一种特殊的ComboBox，列出了系统中可用的字体，允许用户选择文本的字体。</td></tr><tr><td>Line Edit</td><td>行编辑框</td><td>QLineEdit 继承 QWidget。提供了一个单行文本输入框，用户可以输入和编辑一行字符串。</td></tr><tr><td>Text Edit</td><td>文本编辑框</td><td>QTextEdit 继承 QAbstractScrollArea，被 QTextBrowser 继承。一个多行文本编辑器，支持富文本和纯文本编辑，允许用户输入和编辑多行文本，包括格式化文本。</td></tr><tr><td>Plain Text Edit</td><td>多行文本编辑器</td><td>类似于TextEdit，但专门用于编辑纯文本，不支持文本格式化。</td></tr><tr><td>Spin Box</td><td>整数旋转框</td><td>QSpinBox 继承 QAbstractSpinBox。允许用户通过点击箭头或输入选择一个整数值。</td></tr><tr><td>Double Spin Box</td><td>双精度小数旋转框</td><td>QDoubleSpinBox 继承 QAbstractSpinBox。与SpinBox类似，但用于选择一个浮点数值。</td></tr><tr><td>Time Edit</td><td>时间编辑</td><td>QTimeEdit 继承 QDateTimeEdit。允许用户输入和选择一个特定的时间。</td></tr><tr><td>Date Edit</td><td>日期编辑</td><td>QDateEdit 继承 QDateTimeEdit。允许用户输入和选择一个特定的日期。</td></tr><tr><td>Date/TimeEdit</td><td>日期时间编辑</td><td>结合了DateEdit和TimeEdit的功能，允许用户输入和选择一个特定的日期和时间。</td></tr><tr><td>Dial</td><td>表盘控件</td><td>提供了一个旋转拨盘控件，用于选择数值，常用于模拟选择器或调节器。</td></tr><tr><td>Horizontal Scroll Bar</td><td>水平滚动条</td><td>QScrollBar 继承 QAbstractSlider，下同。一种水平滚动条，允许用户通过滑动来水平导航。</td></tr><tr><td>Vertical ScrollBar</td><td>垂直滚动条</td><td>一种垂直滚动条，允许用户通过滑动来垂直导航。</td></tr><tr><td>Horizontal Slider</td><td>水平滑动条</td><td>水平方向的滑动条，允许用户通过拖动选择一个数值。</td></tr><tr><td>VerticalSlider</td><td>垂直滑动条</td><td>垂直方向的滑动条，允许用户通过拖动选择一个数值。</td></tr><tr><td>Key Sequence Edit</td><td>捷键输入控件</td><td>QKeySequenceEdit 继承 QWidget。允许用户输入和编辑键盘快捷键序列。</td></tr></tbody></table><h1 id="display-widgets展示窗口" tabindex="-1"><a class="header-anchor" href="#display-widgets展示窗口"><span>Display Widgets展示窗口</span></a></h1><table><thead><tr><th>组件</th><th>名称</th><th>作用</th></tr></thead><tbody><tr><td>Label</td><td>标签</td><td>用于显示文本和图像。</td></tr><tr><td>Text Browser</td><td>文本浏览器</td><td></td></tr><tr><td>Graphics View</td><td>图形视图框架</td><td></td></tr><tr><td>Calendar Widget</td><td>日历控件</td><td></td></tr><tr><td>LCD Number</td><td>液晶字体数字控件</td><td></td></tr><tr><td>Progress Bar:</td><td>进度条</td><td></td></tr><tr><td>Horizontal Line</td><td>水平线</td><td></td></tr><tr><td>Vertical Line</td><td>垂直线</td><td></td></tr><tr><td>OpenGL Widget</td><td>OpenGL图形染控件</td><td></td></tr><tr><td>QQuickWidget</td><td>QML 嵌入控件</td><td></td></tr></tbody></table><h1 id="qlabel" tabindex="-1"><a class="header-anchor" href="#qlabel"><span>QLabel</span></a></h1><p>QLabel是QT界面中的标签类，它从QFrame下继承，QLabel 类代表标签，它是一个用于显示文本或图像的窗口部件。</p><div class="language- line-numbers-mode has-collapsed-lines collapsed" data-highlighter="shiki" data-ext="" style="--vp-collapsed-lines:15;--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code><span class="line"><span>//构造函数</span></span>
+<span class="line"><span>QLabel(QWidget *parent = 0, Qt::WindowFlags f = 0); </span></span>
+<span class="line"><span>//第一个参数是要显示的文本</span></span>
+<span class="line"><span>QLabel(const QString &amp;text, QWidget *parent = 0, Qt::WindowFlags f= 0); </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>QString text() const; // 获取显示的文本 </span></span>
+<span class="line"><span>const QPixmap *pixmap() const; // 获取显示的图像 </span></span>
+<span class="line"><span>//槽函数，新设置的内容将取代原来的内容。</span></span>
+<span class="line"><span>void setText(const QString &amp;text); // 设置显示的文本</span></span>
+<span class="line"><span>void setPixmap(const QPixmap &amp;pixmap); // 设置显示的图像</span></span>
+<span class="line"><span>void setNum(int num); // 设置显示的文本为代表整数 num 的字符串</span></span>
+<span class="line"><span>void setNum(double num); // 设置显示的文本为代表浮点数 num 的字符串</span></span>
+<span class="line"><span>void label-&gt;setFont(labelFont); //设置字体</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>//Qt::Alignment是一个枚举类型</span></span>
+<span class="line"><span>1）Qt::AlignLeft:：水平方向靠左。</span></span>
+<span class="line"><span>2）Qt::AlignRight：水平方向靠右。</span></span>
+<span class="line"><span>3）Qt::AlignHCenter：水平方向居中。</span></span>
+<span class="line"><span>4）Qt::AlignJustify：水平方向调整间距两端对齐。</span></span>
+<span class="line"><span>5）Qt::AlignTop：垂直方向靠上。</span></span>
+<span class="line"><span>6）Qt::AlignButton：垂直方向靠下。</span></span>
+<span class="line"><span>7）Qt::AlignVCenter：垂直方向居中。</span></span>
+<span class="line"><span>8）Qt::AlignCenter：等价于Qt::AlignHCenter | Qt::AlignVCenter。</span></span>
+<span class="line"><span>获取对齐方式</span></span>
+<span class="line"><span>Qt::Alignment alignment() const;</span></span>
+<span class="line"><span>// 设置对齐方式</span></span>
+<span class="line"><span>void setAlignment(Qt::Alignment align); </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>int indent() const; // 获取文本缩进值 </span></span>
+<span class="line"><span>void setIndex(int indent); //设置文本缩进值 </span></span>
+<span class="line"><span>int margin() const; // 获取边距 </span></span>
+<span class="line"><span>void setMargin(int margin); // 设置边距 </span></span>
+<span class="line"><span>bool wordWrap() const; // 判断是否允许换行 </span></span>
+<span class="line"><span>void setWordWrap(bool on); // 设置是否允许换行 </span></span>
+<span class="line"><span>表示显示图像时是否允许缩放，相关的成员函数如下：</span></span>
+<span class="line"><span>bool hasScaledContenes() const; // 判断是否允许图像缩放 </span></span>
+<span class="line"><span>void setScaledContents(bool on); // 设置是否允许图像缩放 </span></span>
+<span class="line"><span>bool hasScaledContenes() const;    // 判断是否允许图像缩放</span></span>
+<span class="line"><span>void setScaledContents(bool on);    // 设置是否允许图像缩放</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div><div class="collapsed-lines"></div></div>`,6)]))}const r=t(i,[["render",e]]),c=JSON.parse('{"path":"/cpp/qt/13/","title":"13 窗口","lang":"zh-CN","frontmatter":{"title":"13 窗口","createTime":"2025/06/22 10:44:20","permalink":"/cpp/qt/13/"},"readingTime":{"minutes":3.71,"words":1112},"git":{"createdTime":1750599657000,"updatedTime":1750599657000,"contributors":[{"name":"pink","username":"pink","email":"pinkdopeybug@163.com","commits":1,"avatar":"https://avatars.githubusercontent.com/pink?v=4","url":"https://github.com/pink"}]},"filePathRelative":"notes/C++/Qt/13 窗口.md","headers":[]}');export{r as comp,c as data};
