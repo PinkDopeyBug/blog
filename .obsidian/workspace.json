@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/notes/C++/C/11 语法.md",
+                "file": "docs/notes/前端/JavaScript/5 类和对象.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "11 语法"
+              "title": "5 类和对象"
             }
           }
         ]
@@ -160,6 +160,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -170,26 +171,37 @@
   },
   "active": "93df8f8d615058d0",
   "lastOpenFiles": [
-    "docs/notes/C++/C/10 网络库.md",
-    "docs/notes/C++/C/11 语法.md",
-    "docs/notes/C++/C/2 数组.md",
-    "docs/notes/工具/MongoDB/index.md",
-    "docs/notes/C++/C/2 语法.md",
-    "docs/notes/基础/计算机组成原理/3、移位运算.md.p",
-    "docs/notes/工具/MongoDB/2 优化.md",
-    "docs/notes/工具/MongoDB/1 简介.md",
-    "docs/notes/工具/MongoDB/8 视图.md",
-    "docs/notes/工具/MongoDB/7 副本集 Replica Sets.md",
-    "docs/notes/工具/MongoDB/6 索引.md",
-    "docs/notes/工具/MongoDB/4 集合操作.md",
-    "docs/notes/工具/MongoDB/5 文档操作.md",
-    "docs/notes/工具/MongoDB/2 数据库操作.md",
-    "docs/notes/工具/Redis/1 概述.md",
-    "docs/notes/工具/MongoDB/3 BSON.md",
-    "docs/notes/后端/Spring Boot/4 分层解耦.md",
-    "docs/notes/基础/计算机网络/4、数据链路层.md",
-    "docs/notes/基础/计算机网络/5、网络层.md",
-    "docs/notes/基础/计算机网络/3、物理层.md",
-    "docs/notes/前端/正则/正则.md"
+    "docs/notes/前端/JavaScript/7 ajax.md",
+    "docs/notes/前端/JavaScript/6 WebWorker.md",
+    "docs/notes/前端/JavaScript/5 类和对象.md",
+    "docs/notes/前端/JavaScript/4 ES6.md",
+    "docs/notes/前端/JavaScript/3 BOM.md",
+    "docs/notes/前端/JavaScript/2 DOM.md",
+    "docs/notes/前端/JavaScript/1 JavaScript概述.md",
+    "docs/notes/前端/CSS/1 基础.md",
+    "docs/notes/前端/CSS/attachments/Pasted image 20250702231709.png",
+    "docs/notes/前端/CSS/attachments",
+    "docs/notes/前端/CSS/5 CSS3.md",
+    "docs/notes/前端/CSS/4 页面技巧.md",
+    "docs/notes/前端/CSS/6 移动端适配.md",
+    "docs/notes/游戏/ue/2 动画.md",
+    "docs/notes/前端/原理/10 CSS.md",
+    "docs/notes/前端/CSS/3 显示.md",
+    "docs/notes/前端/CSS/7 元素的显示与隐藏.md",
+    "docs/notes/前端/CSS/6 定位.md",
+    "docs/notes/前端/CSS/4 浮动.md",
+    "docs/notes/前端/CSS/4 盒子模型.md",
+    "docs/notes/前端/CSS/2 选择器.md",
+    "docs/notes/前端/CSS/11 TailwindCSS.md",
+    "docs/notes/前端/面经/9 html.md",
+    "docs/notes/前端/原理/1. 浏览器原理.md",
+    "docs/notes/前端/原理/3. vue.md",
+    "docs/notes/前端/原理/2. 网络.md",
+    "docs/notes/前端/原理/4 类.md",
+    "docs/notes/前端/原理/attachments/Pasted image 20250701222043.png",
+    "docs/notes/前端/面经/8 权限.md",
+    "docs/notes/前端/权限/未命名",
+    "docs/notes/前端/权限",
+    "docs/notes/基础/计算机组成原理/3、移位运算.md.p"
   ]
 }
