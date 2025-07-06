@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/notes/前端/面经/3. 八股.md",
+                "file": "docs/notes/前端/原理/9 工程化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3. 八股"
+              "title": "9 工程化"
             }
           }
         ]
@@ -171,18 +171,20 @@
   },
   "active": "93df8f8d615058d0",
   "lastOpenFiles": [
+    "docs/notes/前端/面经/3. 八股.md",
+    "docs/notes/前端/原理/9 工程化.md",
+    "docs/notes/前端/面经/attachments/Pasted image 20250706162541.png",
+    "docs/notes/前端/面经/attachments/Pasted image 20250706162420.png",
     "docs/notes/前端/面经/2. 场景题.md",
     "docs/notes/前端/面经/8 权限.md",
     "docs/notes/前端/面经/6 浏览器.md",
     "docs/notes/前端/面经/5 JavaScript.md",
     "docs/notes/前端/面经/4. vue.md",
-    "docs/notes/前端/面经/3. 八股.md",
     "docs/notes/前端/面经/attachments/Pasted image 20250706144746.png",
     "docs/notes/前端/面经/attachments/Pasted image 20250706140331.png",
     "docs/notes/前端/原理/2. 网络.md",
     "docs/notes/前端/原理/1. 浏览器原理.md",
     "docs/notes/前端/原理/attachments/Pasted image 20250705142622.png",
-    "docs/notes/前端/原理/9 vite.md",
     "docs/notes/前端/原理/8 规范.md",
     "docs/notes/前端/原理/7 异步.md",
     "docs/notes/前端/原理/6 函数.md",
@@ -201,7 +203,6 @@
     "docs/notes/前端/CSS/attachments",
     "docs/notes/前端/CSS/5 CSS3.md",
     "docs/notes/前端/CSS/4 页面技巧.md",
-    "docs/notes/前端/CSS/6 移动端适配.md",
     "docs/notes/前端/原理/attachments/Pasted image 20250701222043.png",
     "docs/notes/前端/权限/未命名",
     "docs/notes/前端/权限",
