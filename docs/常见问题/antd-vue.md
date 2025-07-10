@@ -1,7 +1,10 @@
 ---
 title: antd-vue
 createTime: 2025/07/01 21:10:42
-permalink: /article/20250701/
+tags:
+  - 问题
+  - 组件库
+permalink: /article/question/2/
 ---
 
 # 修改a-modal的样式

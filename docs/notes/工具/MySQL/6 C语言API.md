@@ -1,12 +1,12 @@
 ---
-title: 7 C语言API
+title: 6 C语言API
 createTime: 2025/04/05 12:12:26
-permalink: /tools/mysql/7/
+permalink: /tools/mysql/6/
 ---
 MySQL数据库是一个典型的C/S结构，即：客户端和服务器端。如果我们部署好了MySQL服务器，想要在客户端访问服务器端的数据，在编写程序的时候就可以通过官方提供的C语言的API来实现。
 
 编译时要在末尾加上选项连接到mysql的动态库
-```
+```shell
 gcc -o $@ $^ -lmysqlclient
 ```
 
@@ -16,7 +16,7 @@ gcc -o $@ $^ -lmysqlclient
 分配或初始化MYSQL结构体。
 - mysql: MYSQL对象, 如果是NULL指针，将分配、初始化、并返回新对象。否则，将初始化对象，并返回对象的地址。
 - return: 成功返回指向MYSQL对象的指针, 失败: 当内存不足以分配新对象时返回NULL
-```
+```c
 MYSQL* mysql_init(MYSQL* mysql);
 ```
 
@@ -31,7 +31,7 @@ MYSQL* mysql_init(MYSQL* mysql);
 - unix_socket: 套接字,默认填NULL不用
 - client_flag:客户端标志,一般填0
 - return: 如果连接成功返回指向MYSQL的指针(和mysql参数一样),失败返回NULL
-```
+```c
 MYSQL* mysql_real_connect(
 	MYSQL* mysql,
 	const char* host,
@@ -48,12 +48,12 @@ MYSQL* mysql_real_connect(
 - mysql: 要执行语句的MYSQL对象
 - query: 字符串类型的sql语句结尾不需要添加;
 - return: 成功返回0, 失败返回非0值. 如果是查询, 结果集在mysql 对象中
-```
+```c
 int mysql_query(MYSQL* mysql, const char* query)
 ```
 
 4. 取回结果集
-```
+```c
 typedef struct st_mysql_res{
 	my_ulonglong row_count;
 	MYSQL_FIELD* fields;
@@ -75,13 +75,13 @@ typedef struct st_mysql_res{
 取回完整的结果集
 - mysql: 要取结果的MYSQL对象
 - return: MYSQL_RES对象指针,
-```
+```c
 MYSQL_RES *mysql_store_result(MYSQL* mysql)
 ```
 
 5. 获取数据
 
-```
+```c
 // mysql.h
 // 结果集中的每一个列对应一个 MYSQL_FIELD
 typedef struct st_mysql_field {
@@ -110,24 +110,24 @@ typedef struct st_mysql_field {
 ```
 
 获取结果集中数据的行数
-```
+```c
 int mysql_num_rows(MYSQL_RES &res)
 ```
 从结果集中获取下一行
 - result: 要获取的结果集对象
 - return: 成功得到了当前记录中每个字段的值,失败:NULL, 说明数据已经读完了
-```
+```c
 MYSQL_ROW mysql_fetch_row(MYSQL_RES* result)
 ```
 MYSQL_ROW是一个`char**`类型,可以遍历直接打印一行的数据,也可以对这个二维数组再次取索引获取每个属性的值
 
 得到结果集的列数
-```
+```c
 unsigned int mysql_num_fields(MYSQL_RES *result)
 ```
 得到结果集中所有列的名字
 返回MYSQL_FIELD* 指向一个结构体
-```
+```c
 MYSQL_FIELD *mysql_fetch_fields(MYSQL_RES *result);
 ```
 
@@ -136,20 +136,20 @@ MYSQL_FIELD *mysql_fetch_fields(MYSQL_RES *result);
 2. 如果结果集包含二进制数据，必须使用该函数来确定数据的大小，原因在于，对于包含Null字符的任何字段，strlen()将返回错误的结果。
 - result: 通过查询得到的结果集
 - return:无符号长整数的数组表示各列的大小。如果出现错误，返回NULL。
-```
+```c
 unsigned long *mysql_fetch_lengths(MYSQL_RES *result);
 ```
 
 6. 释放结果集
 获取结果集后必须使用指定函数释放结果集
 - result: 要释放的结果集对象
-```
+```c
 void mysql_free_result(MYSQL_RES* result)
 ```
 
 7. 关闭数据库的连接
 - mysql: 要关闭的数据库对象
-```
+```c
 void mysql_close(MYSQL* mysql)
 ```
 
@@ -157,13 +157,13 @@ void mysql_close(MYSQL* mysql)
 获取api默认使用的字符编码
 为当前连接返回默认的字符集。
 - 返回值: 默认字符集的名称。 
-```
+```c
 const char *mysql_character_set_name(MYSQL *mysql) 
 ```
 
 设置api使用的字符集
 第二个参数 csname 就是要设置的字符集 -> 支持中文: utf8
-```
+```c
 int mysql_set_character_set(MYSQL *mysql, char *csname);
 ```
 
@@ -175,30 +175,30 @@ mysql中默认会进行事务的提交
 设置自动提交模式
 - mode: 如果模式为“1”，启用autocommit模式；如果模式为“0”，禁止autocommit模式。
 - return: 如果成功，返回0，如果出现错误，返回非0值。
-```
+```c
 my_bool mysql_autocommit(MYSQL *mysql, my_bool mode) 
 ```
 
 事务提交
 返回值: 成功: 0, 失败: 非0
-```
+```c
 my_bool mysql_commit(MYSQL *mysql);
 ```
 
 数据回滚
 返回值: 成功: 0, 失败: 非0
-```
+```c
 my_bool mysql_rollback(MYSQL *mysql) 
 ```
 
 **打印错误信息**
 返回错误的描述
-```
+```c
 const char *mysql_error(MYSQL *mysql);
 ```
 
 返回错误的编号
-```
+```c
 unsigned int mysql_errno(MYSQL *mysql);
 ```
 

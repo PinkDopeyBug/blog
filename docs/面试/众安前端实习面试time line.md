@@ -4,7 +4,7 @@ createTime: 2025/06/15 17:18
 tags:
   - 面经
   - 前端
-permalink: /article/20250615/
+permalink: /article/interview/2/
 ---
 **⌚️投递时间：5.12**
 

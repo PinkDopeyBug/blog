@@ -3,7 +3,8 @@ title: vscode
 createTime: 2025/06/23 21:09:00
 tags:
   - vscode
-permalink: /article/20250623/
+  - 问题
+permalink: /article/question/1/
 ---
 # 无法正常生成launch.json和tasks.json文件
 此问题可以不解决而使用手动配置json文件
