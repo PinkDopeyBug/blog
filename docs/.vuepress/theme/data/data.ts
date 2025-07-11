@@ -36,6 +36,8 @@ export const technology = [
   { type: "CSS3", icon: "logos:css-3" },
   { type: "JavaScript", icon: "logos:javascript" },
   { type: "TypeScript", icon: "logos:typescript-icon" },
+  { type: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
+  { type: "Unocss", icon: "logos:unocss" },
   { type: "Vue", icon: "logos:vue" },
   { type: "Pinia", icon: "logos:pinia" },
   { type: "Nuxt", icon: "logos:nuxt-icon" },
