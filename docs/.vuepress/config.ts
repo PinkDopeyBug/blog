@@ -3,7 +3,7 @@ import { defineUserConfig } from "vuepress";
 import { plumeTheme } from "vuepress-theme-plume";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { copyrightPlugin } from "@vuepress/plugin-copyright";
-import { live2dConfig } from "./live2d";
+import { live2dConfig } from "./config/live2d";
 import path from "node:path";
 
 export default defineUserConfig({
@@ -42,7 +42,7 @@ export default defineUserConfig({
       license: "CC-BY-4.0",
     }),
     // live2d配置
-    live2dConfig
+    live2dConfig,
   ],
   theme: plumeTheme({
     hostname: "https://w20241204.dpdns.org/",

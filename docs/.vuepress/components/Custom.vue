@@ -1,148 +1,3 @@
-<template>
-  <div class="container">
-    <canvas ref="canvasRef"></canvas>
-    <div class="head-social">
-      <a
-        href="https://github.com/PinkDopeyBug"
-        target="_blank"
-        class="head-social-btn"
-      >
-        <icon name="mdi:github" />
-      </a>
-      <router-link to="/blog/" class="head-social-avatar"
-        ><img src="/images/avatar.jpg" alt="avatar"
-      /></router-link>
-      <a
-        href="mailto:pinkdopeybug@163.com"
-        target="_blank"
-        class="head-social-btn"
-      >
-        <icon class="head-social-btn" name="ic:baseline-email"></icon>
-      </a>
-    </div>
-    <div class="about-me">
-      <div class="card-content grid-row-3-2">
-        <AboutMeName />
-        <AboutMeText>
-          <template #motto>
-            <slot name="motto">
-              <p class="about-me-card-title-normal">maxim</p>
-              <p class="about-me-card-text-big">蟠踞于井底</p>
-              <p class="about-me-card-text-big about-me-card-text-color">
-                鳅鳝舞其前
-              </p>
-            </slot>
-          </template>
-        </AboutMeText>
-      </div>
-      <div class="card-content grid-row-3-2">
-        <AboutMeSkill />
-        <AboutMeLife />
-      </div>
-      <div class="card-content grid-row-1-1">
-        <AboutMeText>
-          <template #motto>
-            <slot name="motto">
-              <p class="about-me-card-title-normal">pursue</p>
-              <p class="about-me-card-text-big about-me-card-text-soft">
-                身如柳絮<span style="color: #3a5ccc">随风扬</span>
-              </p>
-              <p class="about-me-card-text-big">
-                无论云泥<span style="color: #d53737">意贯一</span>
-              </p>
-            </slot>
-          </template>
-        </AboutMeText>
-        <AboutMeCharacter />
-      </div>
-      <div class="card-content grid-row-1">
-        <AboutMeFriendLink />
-      </div>
-    </div>
-  </div>
-</template>
-
-<style scoped>
-.container {
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden !important;
-  overflow-y: hidden !important;
-}
-
-canvas {
-  z-index: -1;
-  position: fixed;
-  top: -1px;
-  left: -1px;
-  pointer-events: none; /* 允许鼠标事件穿透 */
-  overflow: hidden;
-}
-
-.head-social {
-  display: flex;
-  width: fit-content;
-  margin: 0 auto;
-  align-items: center;
-
-  .head-social-avatar {
-    margin: 20px;
-    border-radius: 30%;
-    overflow: hidden;
-    width: 60px;
-    transition: transform 0.2s;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  .head-social-btn {
-    cursor: pointer;
-    font-size: 30px;
-    margin: 0px;
-    transition: transform 0.2s, color 0.3s;
-    color: var(--vp-c-text-2);
-
-    &:hover {
-      color: var(--vp-c-brand-1);
-      transform: scale(1.2);
-    }
-  }
-}
-
-.about-me {
-  max-width: 1380px;
-  margin: 0 auto;
-  width: 90%;
-  @media screen and (max-width: 770px) {
-    width: 94%;
-  }
-}
-
-.card-content {
-  margin-top: 20px;
-  display: grid;
-  gap: 20px;
-  @media screen and (max-width: 770px) {
-    display: flex;
-    flex-direction: column;
-  }
-}
-.grid-row-3-2 {
-  grid-template-columns: 3fr 2fr;
-}
-
-.grid-row-1-1 {
-  grid-template-columns: 1fr 1fr;
-}
-
-.grid-row-1 {
-  grid-template-columns: 1fr;
-}
-</style>
-
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 import AboutMeName from "./AboutMeName.vue";
@@ -316,3 +171,149 @@ onUnmounted(() => {
   cancelAnimationFrame(animationFrameId);
 });
 </script>
+
+<template>
+  <div class="container">
+    <canvas ref="canvasRef"></canvas>
+    <div class="head-social">
+      <a
+        href="https://github.com/PinkDopeyBug"
+        target="_blank"
+        class="head-social-btn"
+      >
+        <icon name="mdi:github" />
+      </a>
+      <router-link to="/blog/" class="head-social-avatar"
+        ><img src="/images/avatar.jpg" alt="avatar"
+      /></router-link>
+      <a
+        href="mailto:pinkdopeybug@163.com"
+        target="_blank"
+        class="head-social-btn"
+      >
+        <icon class="head-social-btn" name="ic:baseline-email"></icon>
+      </a>
+    </div>
+    <div class="about-me">
+      <div class="card-content grid-row-3-2">
+        <AboutMeName />
+        <AboutMeText>
+          <template #motto>
+            <slot name="motto">
+              <p class="about-me-card-title-normal">maxim</p>
+              <p class="about-me-card-text-big">蟠踞于井底</p>
+              <p class="about-me-card-text-big about-me-card-text-color">
+                鳅鳝舞其前
+              </p>
+            </slot>
+          </template>
+        </AboutMeText>
+      </div>
+      <div class="card-content grid-row-3-2">
+        <AboutMeSkill />
+        <AboutMeLife />
+      </div>
+      <div class="card-content grid-row-1-1">
+        <AboutMeText>
+          <template #motto>
+            <slot name="motto">
+              <p class="about-me-card-title-normal">pursue</p>
+              <p class="about-me-card-text-big about-me-card-text-soft">
+                身如柳絮<span style="color: #3a5ccc">随风扬</span>
+              </p>
+              <p class="about-me-card-text-big">
+                无论云泥<span style="color: #d53737">意贯一</span>
+              </p>
+            </slot>
+          </template>
+        </AboutMeText>
+        <AboutMeCharacter />
+      </div>
+      <div class="card-content grid-row-1">
+        <AboutMeFriendLink />
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.container {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+}
+
+canvas {
+  z-index: -1;
+  position: fixed;
+  top: -1px;
+  left: -1px;
+  pointer-events: none; /* 允许鼠标事件穿透 */
+  overflow: hidden;
+}
+
+.head-social {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+  align-items: center;
+
+  .head-social-avatar {
+    margin: 20px;
+    border-radius: 30%;
+    overflow: hidden;
+    width: 60px;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .head-social-btn {
+    cursor: pointer;
+    font-size: 30px;
+    margin: 0px;
+    transition: transform 0.2s, color 0.3s;
+    color: var(--vp-c-text-2);
+
+    &:hover {
+      color: var(--vp-c-brand-1);
+      transform: scale(1.2);
+    }
+  }
+}
+
+.about-me {
+  max-width: 1380px;
+  margin: 0 auto;
+  width: 90%;
+  @media screen and (max-width: 770px) {
+    width: 94%;
+  }
+}
+
+.card-content {
+  margin-top: 20px;
+  display: grid;
+  gap: 20px;
+  @media screen and (max-width: 770px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.grid-row-3-2 {
+  grid-template-columns: 3fr 2fr;
+}
+
+.grid-row-1-1 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-row-1 {
+  grid-template-columns: 1fr;
+}
+</style>
+
