@@ -1,7 +1,7 @@
 <template>
   <div class="about-me-card-bg vp-blog-post-item about-me-skill">
     <div style="margin-left: 20px">
-      <p class="about-me-card-title-normal">技能</p>
+      <p class="about-me-card-title-normal">skill</p>
       <p class="about-me-card-text-big">我的能力</p>
     </div>
     <!-- 第一行向左移动 -->

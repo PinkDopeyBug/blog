@@ -4,7 +4,7 @@ import { friends } from "../data/data";
 
 <template>
   <div class="about-me-card-bg vp-blog-post-item about-me-friends">
-    <p class="about-me-card-title-normal">友情链接</p>
+    <p class="about-me-card-title-normal">friends</p>
     <div class="about-me-friends-title">
       <p class="about-me-card-text-big about-me-card-text-color">我的好友们</p>
       <router-link to="/more/friends/">

@@ -4,7 +4,7 @@
 
 <template>
 <div class="about-me-card-bg vp-blog-post-item about-me-character">
-  <p class="about-me-card-title-normal">性格</p>
+  <p class="about-me-card-title-normal">personality</p>
   <div class="about-me-character-content">
     <div class="about-me-character-type">
       <p class="about-me-card-text-big about-me-card-text-color">建筑师</p>

@@ -25,7 +25,7 @@ export default defineUserConfig({
   ],
   base: "/",
   lang: "zh-CN",
-  title: "呆虫仙尊的逆流河",
+  title: "PinkDopeyBug",
   description: "PinkDopeyBug blog.",
   bundler: viteBundler(),
   plugins: [

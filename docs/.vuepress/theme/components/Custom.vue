@@ -26,10 +26,10 @@
         <AboutMeText>
           <template #motto>
             <slot name="motto">
-              <p class="about-me-card-title-normal">座右铭</p>
-              <p class="about-me-card-text-big">身如柳絮随风扬</p>
+              <p class="about-me-card-title-normal">maxim</p>
+              <p class="about-me-card-text-big">蟠踞于井底</p>
               <p class="about-me-card-text-big about-me-card-text-color">
-                无论云泥意贯一
+                鳅鳝舞其前
               </p>
             </slot>
           </template>
@@ -43,12 +43,12 @@
         <AboutMeText>
           <template #motto>
             <slot name="motto">
-              <p class="about-me-card-title-normal">追求</p>
+              <p class="about-me-card-title-normal">pursue</p>
               <p class="about-me-card-text-big about-me-card-text-soft">
-                鹰击长空<span style="color: #3a5ccc">鲸霸海</span>
+                身如柳絮<span style="color: #3a5ccc">随风扬</span>
               </p>
               <p class="about-me-card-text-big">
-                不试怎知<span style="color: #d53737">龙与蚯</span>
+                无论云泥<span style="color: #d53737">意贯一</span>
               </p>
             </slot>
           </template>

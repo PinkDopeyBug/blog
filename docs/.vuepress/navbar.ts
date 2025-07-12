@@ -133,7 +133,7 @@ export const navbar = defineNavbarConfig([
     text: "更多",
     items: [
       {
-        text: "友情链接",
+        text: "友人帐",
         link: "/more/friends/",
         icon: "icon-park:friends-circle",
       },
@@ -146,6 +146,11 @@ export const navbar = defineNavbarConfig([
         text: "网址导航",
         link: "/more/sites-collect/",
         icon: "logos:sitepoint",
+      },
+      {
+        text: "公告",
+        link: "/more/bulletin/",
+        icon: "unjs:uqr",
       },
     ],
     icon: "mingcute:more-3-line",

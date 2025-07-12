@@ -3,9 +3,9 @@ export const friends = [
   {
     name: "Hoey",
     link: "https://zhenghaoyang.cn/",
-    avatar:"https://zhenghaoyang.cn/avatar.jpg",
+    avatar: "https://zhenghaoyang.cn/avatar.jpg",
     desc: "老师，我太想进步了。",
-  }
+  },
 ];
 
 // 性格
@@ -74,4 +74,9 @@ export const tools = [
   { type: "Makefile", icon: "material-icon-theme:makefile" },
   { type: "Maven", icon: "material-icon-theme:maven" },
   { type: "NVM", icon: "logos:nvm" },
+  { type: "Ant Design", icon: "devicon:antdesign" },
+  { type: "Element", icon: "logos:element" },
+  { type:"Vercel", icon: "logos:vercel"},
+  { type: "Obsidian", icon: "logos:obsidian-icon" },
+  { type: "NodeMon", icon: "logos:nodemon" },
 ];
