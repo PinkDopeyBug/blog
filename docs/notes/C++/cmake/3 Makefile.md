@@ -1,7 +1,7 @@
 ---
-title: 5 Makefile
+title: 3 Makefile
 createTime: 2025/06/22 10:20:50
-permalink: /cpp/cmake/5/
+permalink: /cpp/cmake/3/
 ---
 在Windows上想要使用gcc编译器需要下载mingw, mingw中带有makefile,不同的mingw版本使用的命令不同
 
@@ -18,14 +18,14 @@ permalink: /cpp/cmake/5/
 | cp                 | copy/xcopy                              |
 | sed                |                                         |
 如常用的linux中makefile写法:
-```
+```makefile
 main:main.cpp
 	g++ -o $@ $^
 	./$@
 	rm -f $@
 ```
 就变为:
-```
+```makefile
 main:main.cpp
 	g++ -o $@.exe $^
 	./$@.exe
@@ -37,7 +37,7 @@ main:main.cpp
 注释是#
 通常由以下三部分组成
 指令是gcc命令
-```
+```makefile
 目标文件:前置依赖
 	\t需要执行的命令
 #生成可执行文件
@@ -57,7 +57,7 @@ makefile是区分空格和制表符的，执行的命令前必须是制表符\\t
 **clean清除指定的目标文件**
 没有前置依赖
 可以删除不需要的中间文件，指令是Linux下的rm删除指令
-```
+```makefile
 clean:
 	rm main main.o hello.o
 ```
@@ -65,7 +65,7 @@ clean:
 **定义变量**
 定义一个变量其中存储文件名，这样生成文件命令就比较简洁，定义的变量使用时需要使用$取出
 换行可以使用\\，其中文件名之间有多少个空格都是允许的
-```
+```makefile
 objects := hello.o\
 main.o
 
@@ -74,7 +74,7 @@ main: $(objects)
 ```
 
 **伪目标**
-```
+```makefile
 .PHONY:伪目标名称
 
 .PHONY:clean
@@ -89,7 +89,7 @@ clean:
 当执行的命令出现错误时整个makefile就会被终止，如：rm删除了不存在的文件。有时候不需要那么精确的指令该命令，此时就可以使用忽略错误
 在命令前加上-就可以忽略错误了
 这对所有命令都适用
-```
+```makefile
 clean:
 	-rm main main.c
 ```
@@ -100,7 +100,7 @@ $：取变量值
 @：当前目标文件的名称（变量形式）
 ^：当前目标文件依赖的所有文件（变量形式）
 <：第一个依赖文件名（变量形式）
-```
+```makefile
 CC:=gcc
 
 main:main.c hello.c
@@ -108,8 +108,6 @@ main:main.c hello.c
 	-./$@    #-./main执行
 	-rm ./$@    # -rm ./main
 ```
-
-
 
 | 变 量 | 含 义                                              |
 | --- | ------------------------------------------------ |
@@ -124,7 +122,7 @@ main:main.c hello.c
 
 makefile中有很多函数并且所有的函数都是有返回值的。makefile中函数的格式和C/C++中函数也不同
 写法:
-```
+```makefile
 $(函数名 参数1, 参数2, 参数3, ...)
 ```
 使用频率比较高的函数：wildcard和patsubst。
@@ -138,12 +136,12 @@ $(函数名 参数1, 参数2, 参数3, ...)
 示例：`$(wildcard *.c ./sub/*.c)`
 返回值格式: `a.c b.c c.c d.c e.c f.c ./sub/aa.c ./sub/bb.c`
 
-```
+```makefile
 $(wildcard PATTERN...)
 ```
 
 **示例**
-```
+```makefile
 # 使用举例: 分别搜索三个不同目录下的 .c 格式的源文件
 src = $(wildcard /home/robin/a/*.c /home/robin/b/*.c *.c)  # *.c == ./*.c
 # 返回值: 得到一个大的字符串, 里边有若干个满足条件的文件名, 文件名之间使用空格间隔
@@ -162,25 +160,19 @@ src = $(wildcard /home/robin/a/*.c /home/robin/b/*.c *.c)  # *.c == ./*.c
 - text: 该参数中存储这要被替换的原始数据
 - 返回值:函数返回被替换过后的字符串。
 
-```
+```makefile
 # 有三个参数, 参数之间使用 逗号间隔
 $(patsubst <pattern>,<replacement>,<text>)
 ```
 
 **示例**
-```
+```makefile
 src = a.cpp b.cpp c.cpp e.cpp
 # 把变量 src 中的所有文件名的后缀从 .cpp 替换为 .o
 obj = $(patsubst %.cpp, %.o, $(src)) 
 # obj 的值为: a.o b.o c.o e.o
 ```
 
-
 ### clean
 
 在clean中指定要删除的文件后使用`make clean`执行删除
-
-
-
-
-

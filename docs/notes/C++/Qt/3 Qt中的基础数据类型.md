@@ -50,7 +50,7 @@ Qt容器类成比STL容器更轻巧（速度和存储优化）、更安全（线
 
 # log输出
 在Qt中进行log输出, 一般不使用c中的`printf`, 也不是使用C++中的`cout`, Qt框架提供了专门用于日志输出的类, 头文件名为 `QDebug`, 使用方法如下:
-```
+```cpp
 // 包含了QDebug头文件, 直接通过全局函数 qDebug() 就可以进行日志输出了  
 qDebug() << "Date:" << QDate::currentDate();  
 qDebug() << "Types:" << QString("String") << QChar('x') << QRect(0, 10, 50, 40);  
@@ -71,7 +71,7 @@ qDebug() << "我是鸣人, 我擅长嘴遁!!!";
 
 默认情况下日志信息是不会打印到终端窗口的, 如果想要实现这样的效果, 必须在项目文件中添加相关的属性信息
 打开项目文件（* .pro）找到配置项 config, 添加 console 控制台属性:
-```
+```cpp
 CONFIG += c++11 console
 ```
 属性信息添加完毕, `重新编译项目` 日志信息就可以打印到终端窗口了
@@ -86,7 +86,7 @@ qt的两种字符串类型没太大差距
 ## QByteArray
 在Qt中`QByteArray`可以看做是c语言中 `char*`的升级版本。我们在使用这种类型的时候可通过这个类的构造函数申请一块动态内存，用于存储我们需要处理的字符串数据。
 - 构造函数
-```
+```cpp
 QByteArray::QByteArray();  // 构造空对象, 里边没有数据  
 QByteArray::QByteArray(const char *data, int size = -1);  // 将data中的size个字符进行构造, 得到一个字节数组对象,如果 size==-1 函数内部自动计算字符串长度, 计算方式为: strlen(data)  
 QByteArray::QByteArray(int size, char ch);// 构造一个长度为size个字节, 并且每个字节值都为ch的字节数组 
@@ -94,7 +94,7 @@ QByteArray::QByteArray(int size, char ch);// 构造一个长度为size个字节,
 
 - 数据操作
 每个操作都有相同效果的两个函数，一个为qt风格，一个为stl风格
-```
+```cpp
 // 在尾部追加数据  
 // 其他重载的同名函数可参考Qt帮助文档, 此处略  
 QByteArray &QByteArray::append(const QByteArray &ba);  
@@ -127,7 +127,7 @@ QByteArray &QByteArray::replace(const QByteArray &before, const QByteArray &afte
 
 - 子字符串查找和判断
 重载的同名函数分别是C++风格的和C语言风格的
-```
+```cpp
 // 判断字节数组中是否包含子字符串 ba, 包含返回true, 否则返回false  
 bool QByteArray::contains(const QByteArray &ba) const;  
 bool QByteArray::contains(const char *ba) const;  
@@ -148,7 +148,7 @@ bool QByteArray::endsWith(char ch) const;
 ```
 
 - 遍历
-```
+```cpp
 // 使用迭代器  
 iterator QByteArray::begin();  
 iterator QByteArray::end();  
@@ -160,7 +160,7 @@ char QByteArray::operator[](int i) const;
 ```
 
 - 查看字节数
-```
+```cpp
 // 返回字节数组对象中字符的个数  
 int QByteArray::length() const;  
 int QByteArray::size() const;  
@@ -179,7 +179,7 @@ f=‘g'表示使用科学计数法
 prec表示精度
 
 ok用来判断转换是否成功
-```
+```cpp
 // 将QByteArray类型的字符串 转换为 char* 类型  
 char *QByteArray::data();  
 const char *QByteArray::data() const;  
@@ -218,7 +218,7 @@ QByteArray QByteArray::toLower() const;
 QString也是封装了字符串, 但是内部的编码为`utf8`, UTF-8属于Unicode字符集, `它固定使用多个字节（window为2字节, linux为3字节）来表示一个字符`，这样可以将世界上几乎所有语言的常用字符收录其中。
 
 - 构造函数
-```
+```cpp
 // 构造一个空字符串对象  
 QString::QString();  
 // 将 char* 字符串 转换为 QString 类型  
@@ -230,7 +230,7 @@ QString::QString(const QByteArray &ba);
 QByteArray里面就是char* 类型，但QString虽然提供的构造函数可以对char* 进行封装，但里面不是普通的char* 而是被处理过的char*
 
 - 数据操作
-```
+```cpp
 // 尾部追加数据  
 // 其他重载的同名函数可参考Qt帮助文档, 此处略  
 QString &QString::append(const QString &str);  
@@ -271,7 +271,7 @@ QString &QString::replace(const QString &before, const QString &after, Qt::CaseS
 
 - 子字符串查找和判断
 QString在进行字符串处理的时候多了cs参数用来区分大小写，QByteArray虽然有同名函数但不区分大小写
-```
+```cpp
 // 参数 cs 为是否区分大小写, 默认区分大小写  
 // 其他重载的同名函数可参考Qt帮助文档, 此处略  
   
@@ -286,7 +286,7 @@ bool QString::endsWith(const QString &s, Qt::CaseSensitivity cs = Qt::CaseSensit
 ```
 
 - 遍历
-```
+```cpp
 // 使用迭代器  
 iterator QString::begin();  
 iterator QString::end();  
@@ -300,7 +300,7 @@ const QChar QString::operator[](int position) const;
 - 查看字节数
 QString中所有的字都算一个字符，中文也算一个字符
 QByteArray中一个汉字占三字节
-```
+```cpp
 // 返回字节数组对象中字符的个数 (字符个数和字节个数是不同的概念)  
 int QString::length() const;  
 int QString::size() const;  
@@ -312,7 +312,7 @@ int QString::count(const QStringRef &str, Qt::CaseSensitivity cs = Qt::CaseSensi
 ```
 
 - 类型转换
-```
+```cpp
 // 将int, short, long, float, double 转换为 QString 类型  
 // 其他重载的同名函数可参考Qt帮助文档, 此处略  
 QString &QString::setNum(int n, int base = 10);  
@@ -351,7 +351,7 @@ QString QString::toLower() const;
 ```
 
 - 字符串格式
-```
+```cpp
 // 其他重载的同名函数可参考Qt帮助文档, 此处略  
 QString QString::arg(const QString &a,   int fieldWidth = 0,   QChar fillChar = QLatin1Char( ' ' )) const;  
 QString QString::arg(int a, int fieldWidth = 0,   int base = 10,   QChar fillChar = QLatin1Char( ' ' )) const;  

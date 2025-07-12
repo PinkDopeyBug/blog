@@ -15,7 +15,7 @@ Item View组件都继承自QAbstractItemModel
 
 ### 常见接口
 **1.QAbstractItemModel：**  
-```
+```cpp
 rowCount(): 返回模型中的行数。
 columnCount(): 返回模型中的列数。
 data(): 返回给定索引处的数据。
@@ -25,7 +25,7 @@ index(): 返回给定行和列的模型索引。
 parent(): 返回给定索引的父索引。
 ```
 **2.QTableView**  
-```
+```cpp
 insertRows(): 插入行。
 removeRows(): 删除行。
 insertColumns(): 插入列。
@@ -33,13 +33,13 @@ removeColumns(): 删除列。
 sort(): 对模型数据进行排序。
 ```
 **3.QListView 专用**  
-```
+```cpp
 insertRows(): 插入行。
 removeRows(): 删除行。
 sort(): 对模型数据进行排序。
 ```
 **4.QAbstractItemView：**  
-```
+```cpp
 setModel(): 关联数据模型。
 setSelectionModel(): 关联选择模型。
 setIndexWidget(): 在指定索引处设置自定义小部件。

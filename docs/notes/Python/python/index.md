@@ -11,7 +11,7 @@ input返回值将输入内容转换为为字符串
 .split（）分隔
 a，b=input().split()将输入的内容分割开，可在一行同时输入
 map目标函数，序列
-```
+```python
 a，b=map(int，input().split()
 ```
 
@@ -25,7 +25,7 @@ int/str/float/complex/bool
 
 #### %格式化输出方式
 
-```
+```python
 print()'xxx%sxxx'%a)
 ```
 
@@ -39,11 +39,9 @@ print()'xxx%sxxx'%a)
 | %c    | 格式化字符及其ASCII码                                                                                    |
 | %e    | 将数字转化成科学计数法的形式                                                                                   |
 | %a    | %a相比于print（‘这里有一个‘，a）输出的是这里有一个 a <br>print（‘这里有一个%s‘ %a）输出的是这里有一个a 少了一个空格                        |
-|       |                                                                                                  |
-|       |                                                                                                  |
 
 #### format格式化输出方式
-```
+```python
 print('xxx{}xxx'.format(x))
 ```
 
@@ -58,7 +56,7 @@ print('xxx{}xxx'.format(x))
 | `{:a<3}`           | 用a填充长度为3的字符串且转义的内容靠左（<^>分别表示靠左上右）（样式型） |
 
 #### f转化的格式化输出方式
-```
+```python
 print（f'xxx{aa}xxx'）
 ```
 
@@ -81,9 +79,6 @@ print（f'xxx{aa}xxx'）
 newline
 `\t`水平制表符
 `\\`输出一个\
-
-
-
 
 ## 补充
 
@@ -110,24 +105,24 @@ newline
 
 ### 导入模块
 
-```
+```python
 import 模块名
 ```
 可导入多个：import 模块名1，模块名2，……
 
-```
+```python
 form 模块名 import 类、变量、方法等
 ```
 
-```
+```python
 from 模块名 import *
 ```
 
-```
+```python
 import 模块名 as 别名
 ```
 
-```
+```python
 from 模块名 import 功能名 as 别名
 ```
 
@@ -137,13 +132,12 @@ from 模块名 import 功能名 as 别名
 
 ## 列表中使用语句
 
-```
+```python
 变量名=[i for i in 范围]
 ```
 - 遍历给定范围中的元素，添加到列表中
 
-```
+```python
 变量名=[i for i in 范围 if 条件]
 ```
 - 遍历给定范围中的元素，把符合条件要求的元素添加到列表中
-

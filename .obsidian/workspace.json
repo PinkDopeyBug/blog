@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/notes/C++/C/index.md",
+                "file": "docs/notes/Python/python/6 文件操作.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "6 文件操作"
             }
           }
         ]
@@ -171,32 +171,33 @@
   },
   "active": "a53c77fc772af83b",
   "lastOpenFiles": [
-    "docs/notes/C++/现代C++特性/index.md",
-    "docs/notes/游戏/Unity/8 第三方库.md",
-    "docs/notes/游戏/Unity/7 UGUI.md",
-    "docs/notes/游戏/Unity/6 IMGUI.md",
-    "docs/notes/游戏/Unity/5 2D.md",
-    "docs/notes/游戏/Unity/4 数据持久化.md",
-    "docs/notes/游戏/Unity/3 核心.md",
-    "docs/notes/游戏/Unity/2 基础.md",
-    "docs/notes/游戏/Unity/index.md",
-    "docs/notes/游戏/ue/6 组件.md",
-    "docs/notes/游戏/ue/5 行为树.md",
-    "docs/notes/游戏/ue/4 事件.md",
-    "docs/notes/游戏/ue/3 蓝图.md",
-    "docs/notes/游戏/ue/2 动画.md",
-    "docs/notes/游戏/ue/index.md",
-    "docs/notes/游戏/C#/4 进阶.md",
-    "docs/notes/游戏/C#/3 常用工具类.md",
-    "docs/notes/游戏/C#/2 类和对象.md",
-    "docs/notes/游戏/C#/index.md",
-    "docs/notes/前端/vue/9 Vitest.md",
-    "docs/notes/前端/vue/8 uniapp.md",
-    "docs/notes/前端/vue/7 Nuxt.md",
-    "docs/notes/前端/vue/6 vue3.md",
-    "docs/notes/前端/vue/5 第三方工具.md",
-    "docs/notes/前端/vue/4 vuex.md",
-    "docs/notes/前端/vue/3 自定义.md",
+    "docs/notes/Python/python/5 类和实例.md",
+    "docs/notes/Python/python/4 逻辑语句.md",
+    "docs/notes/Python/python/3 数据类型.md",
+    "docs/notes/Python/python/2 运算符.md",
+    "docs/notes/Python/python/index.md",
+    "docs/notes/Python/python/6 文件操作.md",
+    "docs/notes/Python/数据处理/index.md",
+    "docs/notes/Python/爬虫/index.md",
+    "docs/notes/more/friends.md",
+    "docs/notes/more/site.md",
+    "docs/notes/more/projects.md",
+    "docs/notes/C++/Qt/15 Containers容器.md",
+    "docs/notes/C++/Qt/14 Item Views视图.md",
+    "docs/notes/C++/Qt/13 窗口.md",
+    "docs/notes/C++/Qt/12 文件操作.md",
+    "docs/notes/C++/Qt/11 Buttons按钮.md",
+    "docs/notes/C++/Qt/10 布局管理.md",
+    "docs/notes/C++/Qt/9 Widget窗体.md",
+    "docs/notes/C++/Qt/8 线程.md",
+    "docs/notes/C++/Qt/7 数据库.md",
+    "docs/notes/C++/Qt/6 QT套接字.md",
+    "docs/notes/C++/Qt/5 时间和日期.md",
+    "docs/notes/C++/Qt/4 Qt中常用的类.md",
+    "docs/notes/C++/Qt/3 Qt中的基础数据类型.md",
+    "docs/notes/C++/Qt/2 信号和槽.md",
+    "docs/notes/C++/Qt/index.md",
+    "docs/notes/C++/cmake/attachment/Recording 20240723090114.webm",
     "docs/notes/前端/工程化/attachments/Pasted image 20250418214013.png",
     "docs/notes/前端/工程化/attachments/Pasted image 20250711224043.png",
     "docs/notes/基础/Linux/attachments/Pasted image 20250711223704.png",
@@ -215,7 +216,6 @@
     "docs/notes/基础/操作系统/attachments",
     "docs/notes/后端/Spring Boot/attachments",
     "docs/notes/后端/Maven/attachments",
-    "docs/notes/后端/Java/attachments",
-    "docs/notes/工具/docker/attachments"
+    "docs/notes/后端/Java/attachments"
   ]
 }
