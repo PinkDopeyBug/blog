@@ -2,6 +2,8 @@ import { viteBundler } from "@vuepress/bundler-vite";
 import { defineUserConfig } from "vuepress";
 import { plumeTheme } from "vuepress-theme-plume";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
+import { copyrightPlugin } from "@vuepress/plugin-copyright";
+import { live2dConfig } from "./live2d";
 import path from "node:path";
 
 export default defineUserConfig({
@@ -29,9 +31,18 @@ export default defineUserConfig({
   plugins: [
     // 谷歌网站数据分析插件
     googleAnalyticsPlugin({
-      // 配置项
       id: "G-481S10DNNW",
     }),
+    // 复制时添加版权信息
+    copyrightPlugin({
+      global: true,
+      triggerLength: 30,
+      author: "呆虫仙尊",
+      canonical: "https://w20241204.dpdns.org/",
+      license: "CC-BY-4.0",
+    }),
+    // live2d配置
+    live2dConfig
   ],
   theme: plumeTheme({
     hostname: "https://w20241204.dpdns.org/",

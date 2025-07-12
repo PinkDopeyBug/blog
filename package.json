@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.23",
+    "@vuepress/plugin-copyright": "2.0.0-rc.112",
     "@vuepress/plugin-google-analytics": "2.0.0-rc.112",
     "http-server": "^14.1.1",
     "markmap-lib": "^0.18.11",
@@ -30,6 +31,7 @@
     "@vuepress/shiki-twoslash": "2.0.0-rc.105",
     "echarts": "^5.6.0",
     "highlighter": "^0.1.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vuepress-plugin-oh-my-live2d": "^0.19.3"
   }
 }
