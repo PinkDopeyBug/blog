@@ -10,7 +10,7 @@
         <icon name="mdi:github" />
       </a>
       <router-link to="/blog/" class="head-social-avatar"
-        ><img src="/avatar.jpg" alt="avatar"
+        ><img src="/images/avatar.jpg" alt="avatar"
       /></router-link>
       <a
         href="mailto:pinkdopeybug@163.com"

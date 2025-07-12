@@ -17,7 +17,8 @@ permalink: /more/friends/
 我的名称: PinkDopeyBug
 网站地址: https://w20241204.dpdns.org/
 描述: 山难现浮槎，心易陷镜花。
-头像: https://w20241204.dpdns.org/avatar.jpg
+头像: https://w20241204.dpdns.org/images/avatar.jpg
+预览：https://w20241204.dpdns.org/images/demos/preview.png
 ```
 
 ### _友情链接申请_
