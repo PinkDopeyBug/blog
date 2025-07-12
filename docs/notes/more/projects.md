@@ -6,4 +6,5 @@ permalink: /more/projects/
 
 <CardGrid>
   <RepoCard repo="PinkDopeyBug/pinkdopeybug-theme" />
+  <RepoCard repo="PinkDopeyBug/blog" />
 </CardGrid>
