@@ -1,7 +1,9 @@
 import { viteBundler } from "@vuepress/bundler-vite";
 import { defineUserConfig } from "vuepress";
 import { plumeTheme } from "vuepress-theme-plume";
+import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import path from "node:path";
+
 export default defineUserConfig({
   head: [
     ["meta", { name: "referrer", content: "no-referrer" }],
@@ -9,11 +11,13 @@ export default defineUserConfig({
       "script",
       { type: "text/javascript" },
       `
-        (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "qnwy9r0rp7");
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?f7efc1bcbe92104310cfd8bb48d6dbbc";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
       `,
     ],
   ],
@@ -22,6 +26,13 @@ export default defineUserConfig({
   title: "呆虫仙尊的逆流河",
   description: "PinkDopeyBug blog.",
   bundler: viteBundler(),
+  plugins: [
+    // 谷歌网站数据分析插件
+    googleAnalyticsPlugin({
+      // 配置项
+      id: "G-481S10DNNW",
+    }),
+  ],
   theme: plumeTheme({
     hostname: "https://w20241204.dpdns.org/",
     contributors: {
@@ -38,9 +49,9 @@ export default defineUserConfig({
         },
         autoDescription: true,
       },
-      sitemap:{
-        devServer:true,
-      }
+      sitemap: {
+        devServer: true,
+      },
     },
     // markdown 增强
     markdown: {
