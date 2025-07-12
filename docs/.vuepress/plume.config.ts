@@ -11,7 +11,7 @@ export default defineThemeConfig({
   // docsDir: 'docs',
   appearance: true,
   profile: {
-    avatar: "avatar.jpg",
+    avatar: "/images/avatar.jpg",
     name: "PinkDopeyBug",
     description: "",
     circle: true,
