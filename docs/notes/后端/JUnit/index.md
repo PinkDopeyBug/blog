@@ -40,10 +40,3 @@ permalink: /back/junit/
 
 如果测试的方法与spring没有关系可以将spring的测试注解注释掉,这样在测试时就不会运行spring的环境可以更快速完成测试
 
-
-
-
-
-
-
-

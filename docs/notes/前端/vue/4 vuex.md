@@ -12,12 +12,12 @@ vuex是一个vue 的状态管理工具，状态就是数据。可以帮我们管
 vuex是将数据存放在仓库中,仓库一般放在stroe文件夹中
 
 1. 创建仓库(空)
-```./store/index.js
+```js
 const store=new Vuex.Store();
 ```
 
 2. 导入仓库
-```main.js
+```vue
 new Vue({
 	render:h=>h(App),
 	store
@@ -26,12 +26,12 @@ new Vue({
 
 3. 访问仓库
 仓库是所有组件都能访问到的对象
-```
+```vue
 $store
 ```
 
 4. 给仓库提供数据
-```
+```vue
 const store=new Vuex.Store({
 	state:{
 		count:10
@@ -40,7 +40,7 @@ const store=new Vuex.Store({
 ```
 
 5. 访问仓库中的数据
-```
+```vue
 $store.state.count
 ```
 
@@ -51,7 +51,7 @@ $store.state.count
 #### 辅助函数
 辅助函数可以将数据映射到当前组件中,当前组件可以像获取自己数据一样获取仓库数据
 访问仓库数据的代码太过繁杂可以使用计算属性精简
-```
+```vue
 computed:{
 	count(){
 		return this.$store.state.count
@@ -61,7 +61,7 @@ computed:{
 
 vuex中提供的辅助函数可以自动生成对应的计算属性
 mapState是辅助函数，帮助我们把store中的数据居自动映射到组件的计算属性中
-```
+```vue
 mapState(['count'])
 computed: {
 	...mapState(['count'])    //展开mapState
@@ -76,7 +76,7 @@ vuex同样遵循单向数据流，组件中不能直接修改仓库的数据
 **mutations**
 仓库数据的修改只能通过mutations
 mutations定义在Store内部
-```
+```vue
 const storee= new Vuex.Store({
 	state:{
 		count:0
@@ -98,23 +98,23 @@ const storee= new Vuex.Store({
 })
 ```
 调用
-```
+```vue
 this.$store.commit('addcount')
 ```
 
 传参调用
-```
+```vue
 this.$store.commit('addncount', 10)
 ```
 
 要传多个参数时就需要使用obj包装了
-```
+```vue
 this.$store.commit('addncount', {str:'cnm',n:2})
 ```
 
 #### 辅助函数
 mapMutations和mapState很像，它是把位于mutations中的方法提取了出来，映射到组件methods中
-```
+```vue
 mutations:
 	subcount（state,+n){
 		statcount -= n
@@ -122,7 +122,7 @@ mutations:
 }
 ```
 
-```
+```vue
 methods:{
 	...mapMutations(['subcount'])
 }
@@ -133,7 +133,7 @@ actions用于异步操作仓库的函数
 mutations必须是同步的（便于监测数据变化，记录调试)
 
 1. 提供actions函数
-```
+```vue
 actions:{
 	setAsyncCount （context,num） {
 		//一秒后，给一个数，去修改num
@@ -145,13 +145,13 @@ actions:{
 ```
 
 2. 使用dispatch调用
-```
+```vue
 this.$store.dispatch('setAsynccount', 200)
 ```
 
 #### 辅助函数
 mapActions是把位于actions中的方法提取了出来，映射到组件methods中
-```
+```vue
 methods: {
 	...mapActions(['changeCountAction'])
 }
@@ -162,7 +162,7 @@ methods: {
 类似于计算属性但不能修改
 
 1. 设置getters
-```
+```vue
 state: {
 	list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }
@@ -178,11 +178,11 @@ getters:{
 
 2. 访问getters
 **通过 store 访问 getters**
-```
+```vue
 $store.getters.filterList
 ```
 **通过辅助函数mapGetters映射**
-```
+```vue
 computed:{
 	...mapGetters(['filterList'])
 }
@@ -196,7 +196,7 @@ store对象就有可能变得相当臃肿。（当项目变得越来越大的时
 1. 模块拆分
 将store根据业务拆分成不同模块放到store/modules/user.js文件中
 在拆分出的模块js文件中定义store的核心概念就是自己设置的变量了
-```user.js
+```vue
 const state ={
 	userInfo:{
 		name: 'zs'
@@ -215,7 +215,7 @@ export default {
 ```
 
 2. 导入模块
-```
+```vue
 import user from'./modules/user'
 const store = new Vuex.Store({
 	modules:{
@@ -228,13 +228,13 @@ const store = new Vuex.Store({
 ### state使用
 
 **在使用模块中的功能或者数据时可以直接使用模块名**
-```
+```vue
 $store.state.模块名.xxx
 ```
 
 **使用辅助函数有两种方式**
 1. 默认根级别的映射
-```
+```vue
 mapState(['模块名'])
 
 {{模块名.xxx}}
@@ -243,7 +243,7 @@ mapState(['模块名'])
 2. 子模块的映射
 需要开启命名空间
 开启命名空间需要在模块中设置`namespaced:true`
-```
+```vue
 napState(模块名,['xxx])
 
 {{xxx}}
@@ -251,7 +251,7 @@ napState(模块名,['xxx])
 
 ### getters使用
 **通过模块名访问**
-```
+```vue
 $store.getters['模块名/xxx']
 ```
 
@@ -263,7 +263,7 @@ $store.getters['模块名/xxx']
 ==默认模块中的mutation和actions会被挂载到全局，需要开启命名空间，才会挂载到子模块。==
 
 **直接调用**
-```
+```vue
 $store.commit('模块名/xxx'，额外参数)
 ```
 
@@ -272,14 +272,9 @@ $store.commit('模块名/xxx'，额外参数)
 
 ### action使用
 **直接调用**
-```
+```vue
 $store.dispatch('模块名/xxx'，额外参数)
 ```
 
 **辅助函数**
 辅助函数的用法同上
-
-
-
-
-

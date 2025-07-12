@@ -15,14 +15,14 @@ permalink: /front/vue/9/
 
 # 开启测试
 普通文件中使用到的函数（被测试的函数）
-```add.ts
+```ts
 export function add(a:number,b:number):number{
 	return a+b
 }
 ```
 
 测试函数
-```add.test.ts
+```ts
 import {add} from 'add.ts'
 
 test('加法',()=>{
@@ -47,7 +47,7 @@ test('加法',()=>{
 15. toContain：匹配的数组中有传入的元素就通过
 
 test中only定义的单元测试会会跳过其他同级的单元测试，只测试only声明的
-```
+```ts
 test.only('1',()=>{})
 ```
 # 生命周期函数
@@ -58,7 +58,7 @@ test.only('1',()=>{})
 
 # 分组
 多个方法共同测试时查看起来比较混乱，可以将逻辑相关的测试分为同一组中
-```
+```ts
 describe('分组1',()=>{
 	test('测试1',()=>{
 		// ...
@@ -69,8 +69,3 @@ describe('分组1',()=>{
 })
 ```
 在分组后对于在生命周期中的执行逻辑也是分组在上的先执行
-
-
-
-
-

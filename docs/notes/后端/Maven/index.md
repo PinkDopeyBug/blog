@@ -3,11 +3,10 @@ title: 1 概述
 createTime: 2025/06/18 20:59:26
 permalink: /back/maven/
 ---
-
 ### 命令
 
 需要在有pom.xml文件夹下对该文件执行
-```
+```shell
 mvn compile    #编译,生成的字节码放在target文件夹中
 mvn clean      #清理编译出的字节码文件,就是清理target文件夹
 mvn test       #测试
@@ -18,7 +17,7 @@ mvn install    #将打包的内容安装到本地仓库(会先自动执行打包
 #### maven插件创建工程
 
 自动创建maven结构的工程
-```
+```shell
 mvn archetype:generate
 	-DgroupId={project-packaging}
 	-DartifactId={project-name}
@@ -27,12 +26,12 @@ mvn archetype:generate
 ```
 
 ##### 自动创建java工程
-```
+```shell
  mvn archetype:generate -DgroupId=com.itheima -DartifactId=java-projectDarchetypeArtifactId=maven-archetype-quickstart -Dversion=0.0.1-snapshotDinteractiveMode=false
 ```
 
 ##### 自动创建web工程
-```
+```shell
 mvn archetype:generate -DgroupId=com.itheima -DartifactId=web-projectDarchetypeArtifactId=maven-archetype-webapp-Dversion=0.0.1-snapshotDinteractiveMode=false
 ```
 
@@ -88,7 +87,7 @@ my-web-project/
 ```
 
 pom.xml配置
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/poM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/xMLSchema-instance"
@@ -140,7 +139,7 @@ pom.xml配置
 如果在一个自己做的项目中需要用到另一个自己做的项目,可以向引入依赖的方式引入自己的被依赖的项目
 
 项目project02中导入项目project01的依赖
-```pom.xml
+```xml
 <dependency>
 	<groupId>com.itheima</groupId>
 	<artifactId>project01</artifactId>
@@ -154,13 +153,13 @@ pom.xml配置
 - 路径优先：当依赖中出现相同的资源时，层级越深，优先级越低，层级越浅，优先级越高
 - 声明优先：当资源在相同层级被依赖时，配置顺序靠前的覆盖配置顺序靠后的
 - 特殊优先：当同级配置了相同资源的不同版本，后配置的覆盖先配置的
-![[Clip_2024-10-01_14-42-54.png]]
+![](attachments/Pasted%20image%2020250711212209.png)
 
 #### 可选依赖
 如果一个项目导入另一个项目作为依赖时,被依赖的项目不想被知道自己使用的依赖可以在自己的pom.xml中对需要隐藏的依赖添加`<optional>true</optional>
 如project02导入project01
 project01中的pom.xml
-```
+```xml
     <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
@@ -173,7 +172,7 @@ project01中的pom.xml
 如果一个项目在导入另一个项目时不需要依赖项目的依赖可以将不需要的依赖排除,排除的依赖不需要写版本号
 如project02需要导入project01
 在project02的pom.xml文件中修改
-```
+```xml
     <dependency>
         <groupId>com.itheima</groupId>
         <artifactId>project03</artifactId>

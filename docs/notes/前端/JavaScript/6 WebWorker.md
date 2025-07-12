@@ -4,7 +4,7 @@ createTime: 2025/06/18 21:11:40
 permalink: /front/js/6/
 ---
 在浏览器中创建一个线程执行指定的js代码逻辑
-```
+```js
 new Worker(path)
 ```
 传入的js文件路径需要是线上的地址，线下的地址无法执行
@@ -21,7 +21,7 @@ new Worker(path)
 在子线程中有一个self对象，它和this类似，但它的指向永远不会改变，指向的都是本子线程
 
 1. 主线程创建Worker并监听消息
-```主线程
+```js
 let worker=new Worker('http://localhost:3000/assets/worker')
 worker.addEventListener('message',(e)=>{
 	console.log(e)
@@ -29,7 +29,7 @@ worker.addEventListener('message',(e)=>{
 ```
 
 2. 子线程发送消息
-```
+```js
 self.postMessage(2)
 ```
 

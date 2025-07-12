@@ -94,32 +94,32 @@ http内置模块用起来很复杂，开发效率低；Express是基于内置的
 # npm
 查看npm配置信息
 - -l：查看详细信息
-```
+```shell
 npm config ls
 ```
 
 查看npm仓库源
-```
+```shell
 npm config get registry
 ```
 
 设置npm仓库源
-```
+```shell
 npm config set registry http://registry.npm.taobao.org
 ```
 
 配置缓存路径
-```
+```shell
 npm config set cache "D:\Develop\npm-cache"
 ```
 
 配置npm库全局安装路径
-```
+```shell
 npm config set prefix "D:\Develop\npm-global"
 ```
 
 配置pnpm
-```
+```shell
 pnpm config set global-bin-dir "D:\Develop\.pnpm-store"
 pnpm config set cache-dir "D:\Develop\.pnpm-store\cache"
 pnpm config set state-dir "D:\Develop\.pnpm-store\state"

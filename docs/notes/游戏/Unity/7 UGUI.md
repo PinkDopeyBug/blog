@@ -418,23 +418,23 @@ Options：存在的选项列表
 每次添加事件时都需要创建一个事件类型 对象，一个事件类型只能被一个事件使用
 1. 声明一个希望监听的事件对象
 Entry是EventTrigger的一个内部类
-```
+```cs
 EventTrigger.Entry entry=new EventTrigger.Entry();
 ```
 
 2. 声明事件类型
-```
+```cs
 entry.eventID=EventTriggerType.PointerUp;
 ```
 
 3. 关联监听函数 
-```
+```cs
 entry.callback.AddListener((data)=>{
 });
 ```
 
 4. 把配置好的事件对象添加到EventTrigger中
-```
+```cs
 eventTrigger.triggers.Add(entry);
 ```
 
@@ -444,7 +444,7 @@ eventTrigger.triggers.Add(entry);
 参数三：摄像机
 参数四：最终得到的点
 一般配合拖拽事件使用
-```
+```cs
 RectTransformutility.ScreenPointToLocalPointInRectangle
 ```
 
@@ -492,7 +492,7 @@ Canvas的渲染模式要不是覆盖模式
 ## 2. 改变图片透明度响应阈值
 1. 第一步：修改图片参数开启Read/WriteEnabled开关
 2. 第二步：通过代码修改图片的响应值
-```
+```cs
 img.alphaHitTestMinimumThreshold=0.1f
 ```
 该参数含义：指定一个像素必须具有的最小alpha值，以变能够认为射线命中了图片

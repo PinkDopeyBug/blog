@@ -6,7 +6,7 @@ permalink: /base/dsa/
 # 线性表
 
 ## 顺序表
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -49,7 +49,7 @@ private:
 
 ## 链表
 
-```
+```cpp
 #pragma once
 #include <iostream>
 using namespace std;
@@ -84,7 +84,7 @@ private:
 ```
 
 带头节点的单向链表
-```
+```cpp
 // SLinkList.h
 #pragma once
 
@@ -129,7 +129,7 @@ private:
 ```
 
 不带头节点的单项链表
-```
+```cpp
 // SLinkList1.h
 #pragma once
 
@@ -171,7 +171,7 @@ private:
 
 ## 单向循环链表
 带头节点的单向循环链表
-```
+```cpp
 // CircularLinkList.h
 #pragma once
 struct Node
@@ -212,7 +212,7 @@ private:
 ```
 
 不带头节点的单向循环链表
-```
+```cpp
 // CircularLinkList1.h
 #pragma once
 struct Node
@@ -256,7 +256,7 @@ private:
 ## 双向链表
 
 带头节点的双向链表
-```
+```cpp
 // DoubleLinkList.h
 #pragma once
 struct Node
@@ -298,7 +298,7 @@ private:
 ```
 
 不带头节点的双向链表
-```
+```cpp
 // DoubleLinkList1.h
 #pragma once
 struct Node
@@ -340,7 +340,7 @@ private:
 
 ## 双向循环链表
 带头节点的双向循环链表
-```
+```cpp
 // DoubleCircularLinkList.h
 #pragma once
 #include <iostream>
@@ -383,7 +383,7 @@ private:
 ```
 
 不带头节点的双向循环链表
-```
+```cpp
 // DoubleCircularLinkList1.h
 #pragma once
 
@@ -430,7 +430,7 @@ private:
 
 ## 约瑟夫问题
 
-```
+```cpp
 struct Node
 {
     int data;
@@ -446,7 +446,7 @@ struct Node
 ## 顺序栈
 后进先出
 抽象数据类型：
-```
+```python
 class Stack:  
     """定义栈类"""  
     def __init__(self):  
@@ -483,9 +483,7 @@ class Stack:
 *栈常用于函数的调用*
 
 **深度优先搜索算法DFS**
-
-
-```
+```cpp
 // ArrayStack.h
 #pragma once
 const int MAX_SIZE = 100;
@@ -509,7 +507,7 @@ private:
 ```
 
 ## 链式栈
-```
+```cpp
 // LinkedStack.h
 #pragma once
 struct Node 
@@ -534,7 +532,7 @@ private:
 ```
 
 ## 顺序非循环队列
-```
+```cpp
 // ArrayQueue.h
 #pragma once
 
@@ -557,7 +555,7 @@ private:
 ```
 
 ## 顺序循环队列
-```
+```cpp
 // CircularQueue.h
 #pragma once
 class CircularQueue 
@@ -581,7 +579,7 @@ private:
 ```
 
 定义一个数组
-```
+```cpp
 typedef struct Queue{
 	int capacity=10;
 	int size=0;
@@ -679,10 +677,7 @@ class deque(object):
 **宽度（广度）优先搜索算法BFS**
 
 若为线性表每次出队元素的时间复杂度为O(n)，使用链表的话时间复杂度为O(1)，出队列也可以将队首往后移来使时间复杂度达到O(1)，但这样操作出队的元素并没有删除，依旧存在队列中
-![](file:///C:\Users\pinkdopeybug\AppData\Roaming\Tencent\Users\1084152852\QQ\WinTemp\RichOle\IZ5IQ65[~}(BKQE@4HE67TW.png)
-
-
-```C
+```cpp
 // LinkedQueue.h
 #pragma once
 

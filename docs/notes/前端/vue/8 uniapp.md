@@ -7,24 +7,24 @@ uni-app是国人开发的基于vue语法,可以编译成各个小程序的项目
 
 
 # vscode创建uniapp项目
-```
+```shell
 npx degit dcloudio/uni-preset-vue#vite demo
 ```
 创建基于ts的项目
-```
+```shell
 npx degit dcloudio/uni-preset-vue#vite-ts demo
 ```
 访问仓库失败处理
-```
+```shell
 npx @dcloudio/uvm
 ```
 vue3创建的项目默认不安装api语法提示依赖,手动安装
-```
+```shell
 npm i @dcloudio/types miniprogram-api-typings mini-types -D
 ```
 安装uni-ui组件库
 也有其他组件库可使用,但uni-ui组件库是跨平台的
-```
+```shell
 pnpm i @dcloudio/uni-ui
 ```
 
@@ -32,13 +32,13 @@ pnpm i @dcloudio/uni-ui
 
 **配置uni-ui类型(ts)**
 uni-ui是js开发的,因此所有的uni-ui组件都没有类型,要想使用ts的类型检查需要导入第三方的软件包
-```
+```shell
 npm i -D @uni-helper/uni-ui-types
 ```
 
 # 自动导入规则的配置
 在pages.json文件中添加
-```pages.json
+```json
   "easycom": {
     "autoscan": true,
     "custom": {
@@ -50,11 +50,11 @@ npm i -D @uni-helper/uni-ui-types
 
 ### ts配置
 安装ts类型校验
-```
+```shell
 pnpm i-D @types/wechat-miniprogram @uni-helper/uni-app-types
 ```
 ts配置文件
-```
+```json
 "compileroptions":{
 	"types":[
 		"@dcloudio/types",
@@ -70,7 +70,7 @@ ts配置文件
 # 持久化
 在uniapp中可以使用pinia持久化,但默认开启的持久化方式只适用于浏览器
 需要对创建的store对象进行额外的配置
-```
+```js
 persist: {
       storage: {
         getItem(key) {

@@ -8,7 +8,7 @@ permalink: /back/springboot/
 - 请求体 : POST请求，存放请求参数
 请求行或每个请求头结尾都是`\r\n`
 请求体和请求头之间有空行隔开他们之间的字符是`\r\n\r\n`
-```
+```http
 POST /brand HTTP/1.1
 Accept:application/json,text/plain, */*
 Accept-Encoding: gzip, deflate,br
@@ -83,13 +83,13 @@ http://localhost/user
 **根据REST风格对资源进行访问称为RESTful**
 
 在springboot中使用RESTful的方法是在路由上对指定路径的资源访问方式做限制
-```
+```java
 @RequestMapping(value="/users",method=RequestMethod.POST)
 ```
 
 #### 设定请求参数(路径变量)
 在形参列表中对指定的参数设置@PathVariable注解可以让该形参作为变量,在@RequestMapping中使用大括号的方法对该形参名可以取值
-```
+```java
 @RequestMapping(value = "/users/{id}",method = RequestMethod.DELETE)
 @ResponseBody
 public String delete(@PathVariable Integer id){
@@ -107,7 +107,7 @@ public String delete(@PathVariable Integer id){
 #### @RestController
 基于SpringMVc的RESTful开发控制器类定义上方
 设置当前控制器类为RESTful风格，等同于@Controller与@ResponseBody两个注解组合功能
-```
+```java
 @RestController
 public class BookController{
 
@@ -118,7 +118,7 @@ public class BookController{
 基于SpringMVc的RESTful开发控制器方法定义上方
 设置当前控制器方法请求访问路径与请求动作，每种对应下个请求动作，例如@GetMapping对应GET请求
 - value（默认）：请求访问路径
-```
+```java
 @GetMapping("/{id}")
 public String getById(@PathVariable Integer id){
 	System.out.println("book getById..."+id);
@@ -135,7 +135,7 @@ springboot的配置文件名必须为application,后缀名可以是properties,ym
 ### 读取配置信息
 #### 读取单个信息
 使用@Value注解
-```
+```java
 @Value("${name})
 private String name1;
 
@@ -148,13 +148,13 @@ private String name2;
 
 #### 读取全部的配置信息
 一个一个获取变量很不方便可以使用自动装配配置到一个环境中,使用spring提供的Environment类接收
-```
+```java
 @Autowried
 private Environment env;
 ```
 
 使用getProperty函数根据传入的键获取Environment中对应的值
-```
+```java
 env.getProperty("user.name");
 ```
 
@@ -164,7 +164,7 @@ env.getProperty("user.name");
 在类上面加上@Component注解是spring能够管控这个类
 在类上面加上@configurationProperties注解其中的profix指定配置文件的键用于根据键获取对应的值
 在使用的时候在该类的实例上添加Autowired自动装配
-```
+```java
 // datasource:
 //     driver:com.mysql.jdbc.Driver
 //     url:jdbc:mysql://localhost/springboot_db
@@ -187,13 +187,13 @@ private MyDataSource myDataSource;
 SpringBoot除了支持配置文件属性配置，还支持Java系统属性和命令行参数的方式进行属性配置。
 ### java系统属性
 前面加一个横杠
-```
+```shell
 -Dserver.port=9000
 ```
 
 ### 命令行参数
 前面要加两个横杠
-```
+```shell
 --server.port=10010
 ```
 
@@ -201,20 +201,20 @@ SpringBoot除了支持配置文件属性配置，还支持Java系统属性和命
 
 ### @Value
 通过
-```
+```java
 @Value("${键名}")
 ```
 获取键名中的值,不同层级需要使用.指明
 
 如:获取server中port的值
-```
+```java
 @Value("server.port")
 public string port;
 ```
 
 ### @ConfigurationProperties
 使用这个注解可以获取一个前缀中的所有键值
-```
+```java
 @ConfigurationProperties(prefix="server")
 public class Test{
 	public string port;
@@ -223,7 +223,7 @@ public class Test{
 \
 ### 第三方依赖提示
 如果有引入第三方依赖的配置,在配置文件中可能不会有提示,可以引入springboot-configuration-process依赖,引入此依赖后在配置第三方配置时就会有提示了,且使用注入获取配置信息也不会爆红了
-```
+```xml
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
@@ -232,7 +232,7 @@ public class Test{
 但有时候提示的配置拼写是横杠分隔的,而传统的配置是驼峰命名的这也没关系,两种方法都能使用
 # beans.xml
 
-```beans.xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -251,13 +251,13 @@ public class Test{
 
 # 使用spring的方法创建对象
 传入配置文件的路径加载配置文件
-```
+```java
 ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 ```
 
 获取创建的对象
 根据配置文件中的bean的id获取对应的对象
-```
+```java
 User user = (User)context.getBean("user");
 ```
 
@@ -292,7 +292,7 @@ SpringBoot的自动配置就是当spring容器启动后，一些配置类、bean
 
 SpringBoot的引l导类是Boot工程的执行入口，运行main方法就可以启动项目
 SpringBoot工程运行后初始化Spring容器，扫描引导类所在包加载bean
-```
+```java
 @SpringBootApplication
 public class QuickstartApplication {
 	public static void main(String[] args) {
@@ -309,12 +309,12 @@ public class QuickstartApplication {
 
 ## 基于配置文件项目配置的注解
 如果要接手一个项目,这个项目是使用xml文件配置的,若想要使用注解开发可以在配置类上添加一个@ImportResource导入对应的配置
-```
+```java
 @ImportResource("application.xml")
 ```
 
 
-```
+```java
 @Import(MyImportSelector.class)
 public class SpringConfig {
 

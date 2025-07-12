@@ -5,7 +5,7 @@ permalink: /cpp/c/
 ---
 # 程序框架
 大部分程序都需要这个框架
-```
+```c
 #include <stdio.h>
 
 int main(){

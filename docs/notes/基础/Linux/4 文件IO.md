@@ -4,7 +4,7 @@ createTime: 2025/06/18 20:42:42
 permalink: /base/linux/4/
 ---
 ### 函数
-```
+```c
 //打开文件。参数：文件路径和名称，模式。
 //r：只读模式，如果没有文件报错
 //w：只写模式，如果文件存在清空文件，不存在创建新文件
@@ -49,18 +49,18 @@ int fscanf(FILE* __restrict __stream,const char* __restrict __format,...)
 系统已经提供了标准输入输出的文件指针可以使用
 ### 标准输入
 stdin
-```
+```c
 fgets(ch,10,stdin)
 ```
 ### 标准输出
 标准输出和错误输出文件描述符不一样
 stdout
-```
+```c
 fputs(ch,stdout)
 ```
 ### 标准错误输出
 stderr
-```
+```c
 fputs(ch,stderr)
 ```
 
@@ -68,7 +68,7 @@ fputs(ch,stderr)
 系统调用是操作系统内核提供给应用程序，使其可以间接访问硬件资源的接口
 系统调用相比于库函数更加底层
 <unistd.h>   unix衍生的操作系统的系统调用库
-```
+```c
 //打开文件。
 //__path：打开文件的路径
 //__oflag：打开文件的模式，有其对应的宏
@@ -106,7 +106,7 @@ exit()函数是由C标准库提供的，定义在stdlib.h中。
 1. 调用所有通过atexit()注册的终止处理函数（自定义）
 2. 刷新所有标准I/O缓冲区（刷写缓存到文件）
 3. 关闭所有打开的标准I/O流（比如通过fopen打开的文件）
-```
+```c
 //statu父进程可接收到的退出状态码0表示成功非0表示各种不同的错误
 void exit(int status)
 void _exit(int status)
@@ -115,7 +115,7 @@ void _Exit(int __status)
 
 # 文件描述符
 每个文件描述符都关联到内核的一个struct file类型的结构体数据，定义于/usr/src/linux-hwe-6.5-headers-6.5.0-27/include/linux/fs.h文件中
-```
+```c
 struct file{
 	......
 	atomic_long_t f_count;//引用计数，管理文件对象的生命周期
@@ -135,7 +135,7 @@ inode就相当于文件的编号，把同一个文件删除后再在该路径创
 
 **struct path**
 结构体定义于Linux系统的/usr/src/linux-hwe-6.5-headers-6.5.0-27/include/linux/path.h文件中
-```
+```c
 struct path {
 	struct vfsmount *mnt;//虚拟文件系统挂载点的表示，存储有关挂载文件系统的信息
 	struct dentry *dentry;目录项结构体，代表了文件系统中的一个目录项。目录项是文件系统中的一个实体，通常对应一个文件或目录的名字。通过这个类型的属性，可以定位文件位置。
@@ -144,7 +144,7 @@ struct path {
 
 **struct inode**
 结构体定义于Linux系统的/usr/src/linux-hwe-6.5-headers-6.5.0-27/include/linux/fs.h文件中
-```
+```c
 struct inode{
 	umode_t i_mode；//文件类型和权限。这个字段指定了文件是普通文件、目录、字符设备、块设备等，以及它的访问权限（读、写、执行）。
 	unsigned short i_opflags;
@@ -160,7 +160,7 @@ struct inode{
 
 **struct files_struct**
 是用来维护一个进程（下文介绍）中所有打开文件信息的。结构体定义于/usr/src/linux-hwe-6.5-headers-6.5.0-27/include/linux/fdtable.h文件中
-```
+```c
 struct files_struct{
 	......
 	struct fdtable __rcu*fdt;//指向当前使用的文件描述符表（fdtable）
@@ -172,7 +172,7 @@ struct files_struct{
 ```
 NR_OPEN_DEFAULT默认长度1024，当文件描述符的数量超过NR_OPEN_DEFAULT时，会发生动态扩容，会将fdarray的内容复制到扩容后的指针数组，f指向扩容后的指针数组。这一过程是内核控制的。
 文件描述符是一个非负整数，其值实际上就是其关联的struct file在fd指向的数组或fdarray中的下标。
-![[Clip_2024-06-16_11-58-25.png]]
+![](attachments/Pasted%20image%2020250711223509.png)
 
 # 缓冲机制
 分为:
@@ -191,7 +191,7 @@ NR_OPEN_DEFAULT默认长度1024，当文件描述符的数量超过NR_OPEN_DEFAU
 	如果buf 为NULL，则标准C库将为该文件流自动分配一个默认大小的缓
 	如果buf 不为NULL，将size设置为θ不合逻辑，行为是未定义的
 - return: 成功返回0，失败返回非零值
-```
+```c
 int setvbuf(FILE *stream,char *buf, int mode, size_t size);
 ```
 
@@ -200,6 +200,6 @@ int setvbuf(FILE *stream,char *buf, int mode, size_t size);
 主要是用来处理输出流
 - stream: 待刷新的数据流，如果为NULL，则刷新所有打开的输出流。
 - return: 成功返回0. 失败返回 EOF，并设置 errno
-```
+```c
 int fflush(FILE *stream);
 ```

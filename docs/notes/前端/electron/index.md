@@ -28,7 +28,7 @@ permalink: /front/electron/
 - 个Electron应用可以有多个渲染进程
 
 ## 各进程所能使用的模块
-![[Pasted image 20250406111822.png]]
+![[attachments/Pasted image 20250406111822.png]]
 
 # 主进程
 每个 Electron 应用都有一个单一的主进程，作为应用程序的入口点。 主进程在 Node.js 环境中运行，这意味着它具有 `require` 模块和使用所有 Node.js API 的能力。
@@ -57,7 +57,7 @@ BrowserWindow 的预加载脚本运行在具有 HTML DOM 和 Node.js、Electron 
 ## 使用node模块
 在创建窗口时添加以下配置指明预加载文件的路径
 有些模块默认不能使用，不过也可以更改配置让其能够使用
-```
+```js
   const mainWindow = new BrowserWindow({
     webPreferences:{
       preload: path.join(__dirname, '/src/preload.js'),
@@ -75,7 +75,7 @@ BrowserWindow 的预加载脚本运行在具有 HTML DOM 和 Node.js、Electron 
 
 ## 沙盒模式
 开启使用node模块功能等同于把沙河模式关闭
-```
+```js
 webPreferences:{
 	sandbox:false
 }
@@ -83,13 +83,13 @@ webPreferences:{
 
 ## 进程隔离设置
 默认情况下预加载脚本（渲染进程）和主进程是隔离的，通过webPreferences属性设置不隔离
-```
+```js
     webPreferences:{
 		contextIsolation:false
     }
 ```
 设置不隔离后就可以直接控制全局window对象了，无需使用api操作
-```preload.js
+```js
 // contextBridge.exposeInMainWorld('api', {
 // 	toMain:()=>{
 // 		ipcRenderer.send('a')
@@ -106,7 +106,7 @@ window.api={
 ## 远程调用模块
 即使关闭了进程隔离在渲染进程中也是无法进行底层api或部分electron api的调用的
 远程调用模块即在渲染进程中映射了一个具有electron api的对象，在渲染进程中可以使用它来调用本身不可访问的api，如创建窗口等
-```
+```js
 enableRemoteModule: true
 ```
 
@@ -122,7 +122,7 @@ enableRemoteModule: true
 
 beafore-quit、will-quit、quit只有在窗口调用`app.quit()`函数时才会触发
 当监听window-all-closed事件后就不会调用这个函数了也就不会触发以上三个事件，要让以上三个事件正常执行需要在window-all-closed中手动调用quit函数
-```
+```js
 app.on('window-all-closed',()=>{
 	console.log('a')
 	app.quit()
@@ -153,13 +153,13 @@ ipcMain、ipcRenderer都是EventEmitter对象
 
 #### 主进程和渲染进程事件监听
 1. 在主进程设置监听事件
-```
+```js
 ipcMain.on('a', () => {
   console.log('a..................')
 })
 ```
 2. 在渲染进程发送事件
-```
+```js
 ipcRenderer.send('a');
 ```
 
@@ -167,7 +167,7 @@ ipcRenderer.send('a');
 因为主进程是唯一的，但渲染进程不唯一，因此在主进程发送消息时就不能使用`ipcRenderer`了
 需要使用`webContents.send()`函数，用法和ipc模块发送消息是一样的
 渲染进程需要先设置监听事件
-```
+```js
 mainWindow.webContents.send('aaa')
 ```
 
@@ -178,13 +178,13 @@ mainWindow.webContents.send('aaa')
 #### 创建和使用全局对象
 1. 创建全局
 全局对象是创建在widow对象中的
-```
+```js
 contextBridge.exposeInMainWorld('api', {
   name: 'tom'
 });
 ```
 2. 使用全局对象
-```
+```js
 console.log(window.api)
 ```
 
@@ -195,13 +195,13 @@ console.log(window.api)
 #### 获取到发送者对象并向其发送消息
 1. 主进程设置监听事件
 在主进程中设置监听事件a，并在回调函数中获取到事件对象，从中取出事件发送者并向其发送消息
-```
+```js
 ipcMain.on('a', (event) => {
   BrowserWindow.fromWebContents(event.sender).send('msg','已收到消息a的通知')
 })
 ```
 2. 渲染进程
-```
+```js
 ipcRenderer.send('a');
 
 ipcRemderer.on('msg',(event,message)=>{
@@ -213,7 +213,7 @@ ipcRemderer.on('msg',(event,message)=>{
 
 1. 预加载脚本设置全局对象
 在全局对象中添加全局函数，其中执行调用主进程中定义的事件
-```preload.js
+```js
 contexBridge.exposeInMainWorld('api',{
 	upload:()=>{
 		ipcRender.invoke('selectFile')
@@ -223,7 +223,7 @@ contexBridge.exposeInMainWorld('api',{
 2. 主进程定义事件
 主进程中定义被调用的事件
 使用invoke调用的事件必须是handle定义的
-```main.js
+```js
 ipcMain.handle('selectFile',async (event)=>{
 	const obj=await dialog.showOpenDialog({})
 	console.log(obj)
@@ -233,12 +233,6 @@ ipcMain.handle('selectFile',async (event)=>{
 ==handle定义的事件返回的是一个promise对象，可以对其进行任何的promise操作==
 
 3. 渲染进程在合适的时机发送事件
-```renderer.js
+```js
 window.api.upload()
 ```
-
-
-
-
-
-

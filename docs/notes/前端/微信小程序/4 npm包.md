@@ -17,14 +17,14 @@ vant是一个组件库,导入好后可以像正常的组件一样使用
 
 ## 自定义属性
 声明一个自定义属性，属性名需要以两个减号（--）开始，属性值则可以是任何有效的CSS值。和其他属性一样，自定义属性也是写在规则集之内的
-```
+```js
 element{
 	--main-bg-color:brown;
 }
 ```
 规则集所指定的选择器定义了自定义属性的可见作用域。通常的最佳实践是定义在根伪类
 在使用局部变量时传入到var函数中即可
-```
+```js
 element {
 	background-color::var（--main-bg-color);
 }
@@ -34,7 +34,7 @@ element {
 在小程序中，实现APl Promise 化主要依赖于miniprogram-api-promise这个第三方的npm 包。
 
 # 全局数据共享
-```
+```js
 import {observable，action} from 'mobx-miniprogram'
 export const store=observable（{
 	//数据字段
@@ -81,7 +81,7 @@ tabBar页面需要放到主包中
 其他的分包在根目录中和pages结构相同,和pages属于同一级
 
 此外还需要在app.json中声明分包的结构
-```
+```json
 {
 	"pages"：[    //主包的所有页面
 		"pages/index",
@@ -134,7 +134,7 @@ tabBar页面需要放到主包中
 - path指出进入该页面时要预下载
 - packages指出要预下载的包名
 - network指定网络设置,all表示任何网络都预下载,wifi表示在wifi环境下才预下载
-```
+```json
 "preloadRule":{
 	"path":{
 		"packages":[

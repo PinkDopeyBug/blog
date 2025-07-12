@@ -8,7 +8,7 @@ permalink: /front/ts/
 ts的组件需要先通过npm下载
 
 下载ts相关包
-```
+```shell
 npm i typescript -g
 ```
 
@@ -16,7 +16,7 @@ npm i typescript -g
 
 将ts文件编译成js文件
 文件名可带后缀也可不带
-```
+```shell
 tsc 文件名
 ```
 
@@ -35,21 +35,21 @@ tsconfig.json常见属性
 1. 创建初始化文件
 生成tsconfig.json文件
 该文件用于指定要自动化编译的内容,如es标准等
-```
+```shell
 tsc --init
 ```
 
 2. 监视需要编译的文件
 将要自动编译的文件设为监视,当被监视的文件发生更改就自动编译
 可以不指定文件名,不指定文件名表示监视当前目录所有文件
-```
+```shell
 tsc --watch 文件名
 ```
 
 # 类型定义
 
 被类型定义的变量无法接收定义类型的其他类型
-```
+```ts
 let a: string;
 
 a=1; // error
@@ -57,7 +57,7 @@ a='hello'; // ok
 ```
 
 类型定义函数参数和返回值
-```
+```ts
 function add(x:number,y:number):number{
   return x+y;
 }
@@ -67,7 +67,7 @@ let res=add(1,2);
 
 ### 字面量类型
 限定一个变量的字面量类型后该变量只能接收对应的字面量
-```
+```ts
 let b='hello'
 
 b='world'; // error
@@ -99,7 +99,7 @@ b='hello'; // ok
 ts中推荐使用基础数据类型小写开头的,如:string
 他们的不同点是string是基元,而String是string的包装类
 
-```
+```ts
 let str1: string//TS官方推荐的写法
 str1 = 'hello'
 str1 = new String('hello')
@@ -119,7 +119,7 @@ any表示任何数据类型
 
 加了any限定的变量可以存储任意的数据类型,这样的类型限定是any的显示类型限定
 不对一个变量进行类型限定而直接使用let或var声明的变量它们默认也是使用any限定的,这种事any的隐式类型限定
-```
+```ts
 let a: any
 
 let b
@@ -128,7 +128,7 @@ let b
 any也可以赋值给任意一个变量
 如果一个被限定类型的变量被any变量赋值,那么这个变量就会被破坏
 
-```
+```ts
 let a:any
 a=false
 
@@ -141,7 +141,7 @@ x=a
 unknown和any用法类似,但不同的是它不会破坏其他变量的类型限定
 可以强制开发者在进行赋值时对类型进行检查
 
-```
+```ts
 let a:unknown
 a=99
 a='hello'
@@ -155,7 +155,7 @@ b=a // error
 
 1. 使用if判断
 加上一个类型判断后再进行赋值可以成功
-```
+```ts
 if(typeof a==='string'){
 	b=a
 }
@@ -163,14 +163,14 @@ if(typeof a==='string'){
 
 2. 断言
 使用断言的两种写法都可以赋值成功
-```
+```ts
 b=a as string
 
 b=<string>a
 ```
 
 对于unknow类型也不可以调用一个对象中的方法,除非使用断言
-```
+```ts
 let a:unknown
 a='hello';
 a.toUpperCase(); // error
@@ -213,21 +213,21 @@ object能接收的类型是非原始类型
 ### 声明对象类型
 可以在定义的类型中限定成员属性类型,但限定的成员属性在实例化时必须要传入,
 可以加?来可选可不选
-```
+```ts
 let person{name:string,age?:number};
 person={name:'tom'}
 ```
 
 ### 声明函数类型
 相当于函数指针
-```
+```ts
 let count:(a:number,b:string)=>number
 ```
 限定了count变量只能存储第一个形参为number类型的,第二个形参为string类型的,返回值为number的函数
 
 ### 声明数组类型
 限定一个变量只能存什么类型的数组
-```
+```ts
 let arr1:string[];
 ler arr2:Array<number>
 ```
@@ -241,7 +241,7 @@ arr1只能存字符串数组,arr2只能存数字类型数
 
 使用enum关键字声明枚举类型
 
-```
+```ts
 enum Diection{
 	up,
 	down,
@@ -253,7 +253,7 @@ enum Diection{
 数字枚举一种最常见的枚举类型，其成员的值会自动递增，且数字枚举还具备反向映射的特点，在下面代码的打印中，可以通过值来获取对应的枚举成员名称。
 
 **字符串枚举**
-```
+```ts
 enum Direction{
 	up="shang",
 	down="xia",
@@ -266,7 +266,7 @@ enum Direction{
 **常量枚举**
 官方描述：常量枚举是一种特殊枚举类型，它使用const关键字定义，在编译时会被内联，避免生
 成一些额外的代码。
-```
+```ts
 const enum Diection{
 	up,
 	down,
@@ -281,13 +281,13 @@ const enum Diection{
 
 #### 定义别名
 定义别名,相当于typedef
-```
+```ts
 type shuzi=number
 ```
 
 #### 联合类型
 联合类型是一种高级类型，它表示一个值可以是几种不同类型之一
-```
+```ts
 type status=number | string
 type gender='男' | '女'
 ```
@@ -296,7 +296,7 @@ type gender='男' | '女'
 类似继承
 交叉类型（lntersectionTypes）允许将多个类型合并为一个类型。合并后的类型将拥有所有被合并
 类型的成员。交叉类型通常用于对象类型。
-```
+```ts
 //面积
 type Area ={
 	height:number; //高
@@ -322,7 +322,7 @@ const house:House={
 ```
 
 使用type定义的限定函数返回类型的变量如果是void不要求返回值必须为undefined
-```
+```ts
 type LogFunc = () => void
 const f1:LogFunc = function () {
 	return 66
@@ -330,7 +330,7 @@ const f1:LogFunc = function () {
 ```
 
 这是为了让简写的箭头 函数能够生效
-```
+```ts
 const src = [1, 2, 3];
 const dst = [0];
 src.forEach((el) => dst.push(el) );
@@ -350,7 +350,7 @@ src.forEach((el) => dst.push(el) );
 readonly只读属性属性无法修改。
 
 当一个类中的属性有构造器提供初始化时可以简写
-```
+```ts
 class Person{
 	constructor(public name: string,public age:number){}
 }
@@ -380,7 +380,7 @@ interface和type的区别
 # 泛型
 泛型允许我们在定义函数、类或接口时，使用类型参数来表示天未指定的类型这些参数在具体使用时，才被指定具体的类型，泛型能让同一段代码适用于多种类型，同时仍然保持类型的安全性。
 
-```
+```ts
 function logData<T>(data:T){
 	console.log(data)
 }
@@ -389,4 +389,3 @@ logData<number>(100)
 
 # 类型声明文件
 类型声明文件是TypeScript 中的一种特殊文件，通常以.d.ts作为扩展名。它的主要作用是为现有的JavaScript代码提供类型信息，使得TypeScript能够在使用这些JavaScript库或模块时进行类型检查和提示。
-

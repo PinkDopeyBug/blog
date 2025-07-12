@@ -20,7 +20,7 @@ Log4j2主要由几个重要的组件构成：
 3. 日志信息的输出格式，而输出格式则控制了日志信息的显示内容。
 
 ### 引入依赖
-```
+```xml
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
@@ -36,7 +36,7 @@ Log4j2主要由几个重要的组件构成：
 
 ### 日志配置文件
 在类的根路径下提供log4j2.xml配置文件（文件名固定为：log4j2.xml，文件必须放到类根路径下。）
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <configuration>  
     <loggers>  
@@ -94,5 +94,3 @@ Log4j2主要由几个重要的组件构成：
 - RollingFile : 打印所有信息
 	- SizeBasedTriggeringPolicy : 指定文件的大小,超过此大小会压缩
 - DefaultRolloverStrategy : 更改同一文件夹下默认日志文件个数,默认为7个
-
-

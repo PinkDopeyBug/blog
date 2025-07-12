@@ -8,20 +8,20 @@ bable通常在dev环境下使用
 
 - bable-loader：提供bable的接口
 - @bable/core：bable的核心，编译需要bable核心参与
-```
+```shell
 npm install bable-loader @bable/core --save-dev
 ```
 
 从es6到es5中也是有多种规范，如果不指定使用哪种规范bableloader不会工作
 通常使用的规范是preset-env，需要安装
-```
+```shell
 npm install @bable/preset-env --save-dev
 ```
 
 # 配置文件
 
 bable的配置文件在`.bablerc`中
-```
+```js
 presets:[
 	[
 		'@bable/preset-env',
