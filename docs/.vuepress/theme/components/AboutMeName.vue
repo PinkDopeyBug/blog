@@ -6,7 +6,7 @@
   <div class="about-me-name">
     <p>你好，欢迎来到我的博客！👋</p>
     <p class="about-me-card-text-big">你可以叫我 呆虫 .</p>
-    <p>一个技术栈和爱好一样广泛的全能型选手。</p>
+    <p>一个技术栈和爱好同样广泛的全能型选手。</p>
   </div>
 </template>
 
