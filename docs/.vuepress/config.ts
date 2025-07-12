@@ -8,10 +8,9 @@ import path from "node:path";
 
 export default defineUserConfig({
   head: [
-    ["meta", { name: "referrer", content: "no-referrer" }],
     [
       "script",
-      { type: "text/javascript" },
+      {},
       `
         var _hmt = _hmt || [];
         (function() {
