@@ -12,7 +12,10 @@
   --home-action-bnt-bg: rgb(235, 235, 239);
   /*语言 span 背景*/
   --about-me-skill-item-bg: #f4f2ed;
+  /* 容器背景 */
+  --main-container-bg: rgba(255, 255, 255, 0.9);
 }
+
 [data-theme="dark"] {
   --main-card-background: rgba(27, 28, 32, 0.85);
   --main-card-border: #3d3d3f;
@@ -20,6 +23,7 @@
   --about-card-hover-bg: rgba(100, 190, 190, 0.8);
   --home-action-bnt-bg: rgb(50, 54, 63);
   --about-me-skill-item-bg: #15191c;
+  --main-container-bg: rgba(0, 0, 0, 0.9);
 }
 
 /*卡片背景*/
@@ -73,17 +77,10 @@
   -webkit-text-fill-color: transparent;
 }
 
-.vp-layout {
-  background: linear-gradient(#ffffffd9, #ffffffd9), url(/images/star_sky.jpg); /* 注意这里使用了绝对路径 */
-}
-
-.vp-footer {
-  padding: 2rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1); /* 半透明背景 */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* 柔和的边框 */
-  backdrop-filter: blur(10px); /* 高斯模糊 */
-  -webkit-backdrop-filter: blur(10px); /* Safari 兼容 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 可选阴影 */
-  color: white; /* 文字颜色建议调整 */
+.vp-blog {
+  background-image: linear-gradient(
+      var(--main-container-bg),
+      var(--main-container-bg)
+    ),
+    url(/images/star_sky.jpg);
 }
