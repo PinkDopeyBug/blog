@@ -79,7 +79,7 @@ public class JedisTest {
     // 建立连接
     jedis = new Jedis("localhost", 6379);
     // 验证密码
-    jedis.auth("030604");
+    jedis.auth("123456");
     // 选择数据库
     jedis.select(0);
   }

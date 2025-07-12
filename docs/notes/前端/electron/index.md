@@ -28,7 +28,7 @@ permalink: /front/electron/
 - 个Electron应用可以有多个渲染进程
 
 ## 各进程所能使用的模块
-![[attachments/Pasted image 20250406111822.png]]
+![](attachments/Pasted image 20250406111822.png)
 
 # 主进程
 每个 Electron 应用都有一个单一的主进程，作为应用程序的入口点。 主进程在 Node.js 环境中运行，这意味着它具有 `require` 模块和使用所有 Node.js API 的能力。

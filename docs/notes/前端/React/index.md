@@ -352,11 +352,11 @@ class Weather extends React.Component{
 
 # 生命周期
 旧的
-![[attachments/Pasted image 20250529142144.png]]
+![](attachments/Pasted image 20250529142144.png)
 forceUpdate强制更新
 
 新的
-![[attachments/Pasted image 20250601172804.png]]
+![](attachments/Pasted image 20250601172804.png)
 
 
 | 旧函数                       | 新函数                      | 作用                                                                                                     |

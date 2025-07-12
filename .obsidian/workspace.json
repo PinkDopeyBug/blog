@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "72184ab12bbee9de",
+        "id": "25653485c6667414",
         "type": "tabs",
         "children": [
           {
-            "id": "a53c77fc772af83b",
+            "id": "5c8b0f6e4065d5d3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/notes/Python/python/6 文件操作.md",
+                "file": "docs/notes/工具/MySQL/2 进阶.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "6 文件操作"
+              "title": "2 进阶"
             }
           }
         ]
@@ -169,14 +169,25 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "a53c77fc772af83b",
+  "active": "5c8b0f6e4065d5d3",
   "lastOpenFiles": [
+    "docs/notes/前端/electron/index.md",
+    "docs/notes/前端/html/index.md",
+    "attachments/Pasted.md",
+    "attachments",
+    "docs/notes/基础/计算机组成原理/index.md",
+    "docs/notes/基础/计算机网络/6、运输层.md",
+    "docs/notes/基础/操作系统/2 进程.md",
+    "docs/notes/基础/操作系统/index.md",
+    "docs/notes/基础/计算机网络/4、数据链路层.md",
+    "docs/notes/工具/Git/index.md",
+    "docs/notes/工具/docker/index.md",
+    "docs/notes/Python/python/6 文件操作.md",
     "docs/notes/Python/python/5 类和实例.md",
     "docs/notes/Python/python/4 逻辑语句.md",
     "docs/notes/Python/python/3 数据类型.md",
     "docs/notes/Python/python/2 运算符.md",
     "docs/notes/Python/python/index.md",
-    "docs/notes/Python/python/6 文件操作.md",
     "docs/notes/Python/数据处理/index.md",
     "docs/notes/Python/爬虫/index.md",
     "docs/notes/more/friends.md",
@@ -187,16 +198,6 @@
     "docs/notes/C++/Qt/13 窗口.md",
     "docs/notes/C++/Qt/12 文件操作.md",
     "docs/notes/C++/Qt/11 Buttons按钮.md",
-    "docs/notes/C++/Qt/10 布局管理.md",
-    "docs/notes/C++/Qt/9 Widget窗体.md",
-    "docs/notes/C++/Qt/8 线程.md",
-    "docs/notes/C++/Qt/7 数据库.md",
-    "docs/notes/C++/Qt/6 QT套接字.md",
-    "docs/notes/C++/Qt/5 时间和日期.md",
-    "docs/notes/C++/Qt/4 Qt中常用的类.md",
-    "docs/notes/C++/Qt/3 Qt中的基础数据类型.md",
-    "docs/notes/C++/Qt/2 信号和槽.md",
-    "docs/notes/C++/Qt/index.md",
     "docs/notes/C++/cmake/attachment/Recording 20240723090114.webm",
     "docs/notes/前端/工程化/attachments/Pasted image 20250418214013.png",
     "docs/notes/前端/工程化/attachments/Pasted image 20250711224043.png",
@@ -215,7 +216,6 @@
     "docs/notes/基础/计算机网络/attachments",
     "docs/notes/基础/操作系统/attachments",
     "docs/notes/后端/Spring Boot/attachments",
-    "docs/notes/后端/Maven/attachments",
-    "docs/notes/后端/Java/attachments"
+    "docs/notes/后端/Maven/attachments"
   ]
 }

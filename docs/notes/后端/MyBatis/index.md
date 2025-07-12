@@ -85,7 +85,7 @@ resource文件夹下
                 <property name="driver" value="com.mysql.jdbc.Driver" />
                 <property name="url" value="jdbc:mysql:///mybatis?useSSL=false" />
                 <property name="username" value="root" />
-                <property name="password" value="030604" />
+                <property name="password" value="123456" />
             </dataSource>
         </environment>
     </environments>
@@ -671,7 +671,7 @@ mybatis由于是主要用于操作数据库,故缓存方面可能有做的不好
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://localhost:3306/mybatis"
 			userId="root"
-			password="030604">
+			password="123456">
 		</jdbcConnection>
 	
 		<!--javaBean的生成策略-->

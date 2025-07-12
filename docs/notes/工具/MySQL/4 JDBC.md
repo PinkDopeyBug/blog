@@ -144,7 +144,7 @@ setXxx(参数1，参数2)
 示例:
 ```java
 String name="root";
-String password="030604";
+String password="123456";
 
 String sql="select * from tb_user where username=? and password=?;";
 

@@ -141,5 +141,5 @@ nuxt中有三种生命周期钩子，
 服务端的生命周期执行完毕后就是vue本身的生命周期了，在vue自身的生命周期中beforeCreated和created这两个生命周期函数可能运行在服务端也可能运行在客户端（因为是服务端渲染）
 在nuxt中不存在keep-alive和dekeep-alive生命周期，因为是服务端渲染的所以不存在组件的缓存
 
-![[attachments/Pasted image 20250522113533.png]]
-![[Pasted image 20250522113747.png]]
+![](attachments/Pasted image 20250522113533.png)
+![](Pasted image 20250522113747.png)

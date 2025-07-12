@@ -69,7 +69,7 @@ xhr.setRequestHeader("Content-Type","application/json");
 
 2. 将携带的数据传入请求中一起发送
 ```js
-const user={name:"itheima",pwd:"030604wyf"};
+const user={name:"itheima",pwd:"123456"};
 xhr.send(JSON.stringify(user));
 ```
 

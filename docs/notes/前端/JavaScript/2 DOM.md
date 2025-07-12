@@ -496,7 +496,7 @@ console.log(Data.now())
 ```
 
 # 节点操作
-![[attachments/Pasted image 20241101084407.png]]
+![](attachments/Pasted image 20241101084407.png)
 
 ### DOM节点
 DOM树里每一个内容都称之为节点
