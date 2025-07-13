@@ -1,7 +1,7 @@
 ---
 title: 1 简介
 createTime: 2025/06/22 10:38:34
-permalink: /cpp/qt/1/
+permalink: /cpp/qt/
 ---
 解决clion中qdebug不输出内容的方法
 在调试配置->环境变量中添加以下代码

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/notes/more/friends.md",
+                "file": "docs/notes/C++/Qt/2 信号和槽.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "friends"
+              "title": "2 信号和槽"
             }
           }
         ]
@@ -171,6 +171,8 @@
   },
   "active": "5c8b0f6e4065d5d3",
   "lastOpenFiles": [
+    "docs/notes/C++/Qt/index.md",
+    "docs/notes/more/friends.md",
     "docs/notes/工具/MySQL/2 进阶.md",
     "docs/notes/前端/electron/index.md",
     "docs/notes/前端/html/index.md",
@@ -191,13 +193,11 @@
     "docs/notes/Python/python/index.md",
     "docs/notes/Python/数据处理/index.md",
     "docs/notes/Python/爬虫/index.md",
-    "docs/notes/more/friends.md",
     "docs/notes/more/site.md",
     "docs/notes/more/projects.md",
     "docs/notes/C++/Qt/15 Containers容器.md",
     "docs/notes/C++/Qt/14 Item Views视图.md",
     "docs/notes/C++/Qt/13 窗口.md",
-    "docs/notes/C++/Qt/12 文件操作.md",
     "docs/notes/C++/cmake/attachment/Recording 20240723090114.webm",
     "docs/notes/前端/工程化/attachments/Pasted image 20250418214013.png",
     "docs/notes/前端/工程化/attachments/Pasted image 20250711224043.png",
