@@ -36,7 +36,7 @@ export default defineUserConfig({
     // 复制时添加版权信息
     copyrightPlugin({
       global: true,
-      triggerLength: 100,
+      triggerLength: 60,
       author: "呆虫仙尊",
       canonical: "https://w20241204.dpdns.org/",
       license: "CC-BY-4.0",
