@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./server",
+    "strict": true,
+    "lib": ["es2021", "dom"],
+    "types": ["node"]
+  },
+  "include": ["server/**/*"]
+}

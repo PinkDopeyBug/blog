@@ -6,6 +6,7 @@ import AboutMeSkill from "./AboutMeSkill.vue";
 import AboutMeCharacter from "./AboutMeCharacter.vue";
 import AboutMeLife from "./AboutMeLife.vue";
 import AboutMeFriendLink from "./AboutMeFriendLink.vue";
+import { getPV } from "../api/dataStatistics";
 
 interface Comet {
   direction: "horizontal" | "vertical";
@@ -21,6 +22,11 @@ const comets = ref<Comet[]>([]);
 const mouseX = ref(-1);
 const mouseY = ref(-1);
 let animationFrameId: number;
+
+const dataStatistics = ref<{
+  pv: number;
+  uv: number;
+}>({ pv: 0, uv: 0 });
 
 const initCanvas = () => {
   const canvas = canvasRef.value;
@@ -164,6 +170,12 @@ onMounted(() => {
   initCanvas();
   animate();
   setInterval(createComet, 1000);
+
+  getPV().then((res) => {
+    console.log(res);
+    dataStatistics.value.pv = res.result.sum[0][0];
+    dataStatistics.value.uv = res.result.sum[0][1];
+  });
 });
 
 onUnmounted(() => {
@@ -200,10 +212,16 @@ onUnmounted(() => {
         <AboutMeText>
           <template #motto>
             <slot name="motto">
-              <p class="about-me-card-title-normal">maxim</p>
-              <p class="about-me-card-text-big">蟠踞于井底</p>
-              <p class="about-me-card-text-big about-me-card-text-color">
-                鳅鳝舞其前
+              <p class="about-me-card-title-normal">statistics</p>
+              <p class="about-me-card-text-big">
+                总访客数：<span style="color: #d53737">{{
+                  dataStatistics.uv
+                }}</span>
+              </p>
+              <p class="about-me-card-text-big about-me-card-text-soft">
+                网站访问量：<span style="color: #3a5ccc">{{
+                  dataStatistics.pv
+                }}</span>
               </p>
             </slot>
           </template>
@@ -217,12 +235,10 @@ onUnmounted(() => {
         <AboutMeText>
           <template #motto>
             <slot name="motto">
-              <p class="about-me-card-title-normal">pursue</p>
-              <p class="about-me-card-text-big about-me-card-text-soft">
-                身如柳絮<span style="color: #3a5ccc">随风扬</span>
-              </p>
-              <p class="about-me-card-text-big">
-                无论云泥<span style="color: #d53737">意贯一</span>
+              <p class="about-me-card-title-normal">maxim</p>
+              <p class="about-me-card-text-big">身如柳絮随风扬</p>
+              <p class="about-me-card-text-big about-me-card-text-color">
+                无论云泥意贯一
               </p>
             </slot>
           </template>
@@ -316,4 +332,3 @@ canvas {
   grid-template-columns: 1fr;
 }
 </style>
-

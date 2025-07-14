@@ -11,7 +11,8 @@
     "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
     "docs:build": "vuepress build docs --clean-cache --clean-temp",
     "docs:preview": "http-server docs/.vuepress/dist",
-    "vp-update": "npx vp-update"
+    "vp-update": "npx vp-update",
+    "serve": "node server/index.js"
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.23",
@@ -31,8 +32,11 @@
   "dependencies": {
     "@iconify/json": "^2.2.339",
     "@vuepress/shiki-twoslash": "2.0.0-rc.105",
+    "@vueuse/core": "^13.5.0",
     "echarts": "^5.6.0",
     "highlighter": "^0.1.0",
+    "koa": "^3.0.0",
+    "node-fetch": "^3.3.2",
     "typescript": "^5.8.3",
     "vuepress-plugin-oh-my-live2d": "^0.19.3"
   }
