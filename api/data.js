@@ -13,6 +13,15 @@ export default async (req, res) => {
   const end_date = formatDate(new Date());
   const url = `https://openapi.baidu.com/rest/2.0/tongji/report/getData?access_token=${access_token}&site_id=${site_id}&method=visit/toppage/a&start_date=${start_date}&end_date=${end_date}&metrics=pv_count,visitor_count`;
 
-  const response = await fetch(url);
-  res.status(200).json(response);
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json(); // 确保将响应转换为 JSON
+    res.status(200).json(data); // 返回实际数据
+  } catch (error) {
+    console.error("Error fetching data from Baidu:", error);
+    res.status(500).json({ error: "Failed to fetch data from Baidu" });
+  }
 };
