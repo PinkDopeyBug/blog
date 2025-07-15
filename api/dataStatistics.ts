@@ -16,7 +16,6 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(url);
-    
     res.status(200).send(response.json());
   } catch (error) {
     res.status(500).send({ error: "Failed to fetch data from Baidu" });
