@@ -2,8 +2,7 @@
 title: v-for中使用ref获取dom
 createTime: 2025/07/15 23:00:04
 tags:
-  - vue
-	- 前端
+  - vue- 前端
   - 问题
 permalink: /article/question/3/
 ---
