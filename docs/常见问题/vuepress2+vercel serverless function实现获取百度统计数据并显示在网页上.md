@@ -79,7 +79,9 @@ https://openapi.baidu.com/rest/2.0/tongji/config/getSiteList?access_token=${ACCE
 vercel项目会自动检测根目录下的api文件夹，并且将api文件夹中的所有文件以其相对于项目根目录的路径拼接到项目启动服务器url后面就是请求路径
 如：
 data.js默认导出的函数请求路径就是url/api/data
+
 ![](attachments/Pasted%20image%2020250715225235.png)
+
 在url填从api调试工具中获取到的url，向这个url发送请求并转发出去
 ```js
 export default async (req, res) => {
