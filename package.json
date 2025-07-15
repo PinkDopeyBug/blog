@@ -11,10 +11,10 @@
     "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
     "docs:build": "vuepress build docs --clean-cache --clean-temp",
     "docs:preview": "http-server docs/.vuepress/dist",
-    "vp-update": "npx vp-update",
-    "serve": "node server/index.js"
+    "vp-update": "npx vp-update"
   },
   "devDependencies": {
+    "@vercel/node": "^5.3.5",
     "@vuepress/bundler-vite": "2.0.0-rc.23",
     "@vuepress/client": "2.0.0-rc.2",
     "@vuepress/plugin-copyright": "2.0.0-rc.112",
@@ -35,7 +35,6 @@
     "@vueuse/core": "^13.5.0",
     "echarts": "^5.6.0",
     "highlighter": "^0.1.0",
-    "koa": "^3.0.0",
     "node-fetch": "^3.3.2",
     "typescript": "^5.8.3",
     "vuepress-plugin-oh-my-live2d": "^0.19.3"

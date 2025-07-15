@@ -179,10 +179,16 @@ onMounted(() => {
   animate();
   setInterval(createComet, 1000);
 
-  getPV().then((res) => {
+  // getPV().then((res) => {
+  //   console.log(res);
+  //   pv.value = res.result.sum[0][0];
+  //   uv.value = res.result.sum[0][1];
+  // });
+
+  fetch("/api/dataStatistics").then((res) => {
     console.log(res);
-    pv.value = res.result.sum[0][0];
-    uv.value = res.result.sum[0][1];
+    // pv.value = res.result.sum[0][0];
+    // uv.value = res.result.sum[0][1];
   });
 });
 
