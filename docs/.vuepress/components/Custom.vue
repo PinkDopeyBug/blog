@@ -23,8 +23,8 @@ const mouseX = ref(-1);
 const mouseY = ref(-1);
 let animationFrameId: number;
 
-const pv = ref(226);
-const uv = ref(21);
+const pv = ref(0);
+const uv = ref(0);
 
 const initCanvas = () => {
   const canvas = canvasRef.value;

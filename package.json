@@ -35,7 +35,6 @@
     "@vueuse/core": "^13.5.0",
     "echarts": "^5.6.0",
     "highlighter": "^0.1.0",
-    "node-fetch": "^3.3.2",
     "typescript": "^5.8.3",
     "vuepress-plugin-oh-my-live2d": "^0.19.3"
   }
