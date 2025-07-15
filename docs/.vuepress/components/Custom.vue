@@ -184,11 +184,21 @@ onMounted(() => {
   //   uv.value = res.result.sum[0][1];
   // });
 
-  fetch("/api/data").then((res) => {
-    console.log(res);
-    // pv.value = res.result.sum[0][0];
-    // uv.value = res.result.sum[0][1];
-  });
+  fetch("/api/data")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json(); // 解析 JSON 数据
+    })
+    .then((data) => {
+      console.log(data); // 打印解析后的数据
+      pv.value = data.result.sum[0][0]; // 更新 pv 值
+      uv.value = data.result.sum[0][1]; // 更新 uv 值
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
 });
 
 onUnmounted(() => {
