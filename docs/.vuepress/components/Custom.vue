@@ -6,7 +6,6 @@ import AboutMeSkill from "./AboutMeSkill.vue";
 import AboutMeCharacter from "./AboutMeCharacter.vue";
 import AboutMeLife from "./AboutMeLife.vue";
 import AboutMeFriendLink from "./AboutMeFriendLink.vue";
-import { getPV } from "../api/dataStatistics";
 import { useTransition } from "@vueuse/core";
 
 interface Comet {
@@ -185,7 +184,7 @@ onMounted(() => {
   //   uv.value = res.result.sum[0][1];
   // });
 
-  fetch("/api/dataStatistics").then((res) => {
+  fetch("/api/data").then((res) => {
     console.log(res);
     // pv.value = res.result.sum[0][0];
     // uv.value = res.result.sum[0][1];
