@@ -15,9 +15,8 @@ export default async function handler(req, res) {
   const url = `https://openapi.baidu.com/rest/2.0/tongji/report/getData?access_token=${access_token}&site_id=${site_id}&method=visit/toppage/a&start_date=${start_date}&end_date=${end_date}&metrics=pv_count,visitor_count`;
 
   try {
-    const response = await fetch(url);
-    res.status(200).send('success');
+    res.status(200).json({msg:'获取成功'})
   } catch (error) {
-    res.status(500).send({ error: "Failed to fetch data from Baidu" });
+    res.status(500).json({ error: "Failed to fetch data from Baidu" });
   }
 }
