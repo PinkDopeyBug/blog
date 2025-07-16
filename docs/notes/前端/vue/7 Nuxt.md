@@ -102,7 +102,7 @@ useSeoMeta({
 `server/api/user.ts`文件请求的接口就是`localhost:3000/api/user`，默认是所有请求都可以识别的，但也可以更改文件名设置只接收某种请求，如：`user.get.ts`文件只能被get请求识别
 
 返回后端数据需要使用defineEventHandler函数，为这个函数传入一个函数，返回值就是要返回的数据
-```vue
+```js
 export default defineEventHandler(()=>{
 	return data
 })
@@ -110,7 +110,7 @@ export default defineEventHandler(()=>{
 
 ## 发送请求
 nuxt有封装好的请求函数，不需要使用axios
-```vue
+```js
 const res=await useFetch('/api/user')
 ```
 
@@ -120,13 +120,13 @@ const res=await useFetch('/api/user')
 如果在服务端渲染的代码中设置了修改了变量，而这段代码在服务端和客户端都会运行通常会运行两次，默认的情况下客户端和服务端是属性隔离的
 
 如果以下代码在服务端和客户端都有执行
-```vue
+```js
 const a=ref(0)
 a.value++
 console.log(a.value) //服务端和客户端输出的都是1，这是因为属性是隔离的
 ```
 如果要服务端和客户端共享数据可以使用useState函数获取共享的状态
-```
+```js
 const a= useState("number",()=>{
 	return 0
 )
@@ -141,5 +141,14 @@ nuxt中有三种生命周期钩子，
 服务端的生命周期执行完毕后就是vue本身的生命周期了，在vue自身的生命周期中beforeCreated和created这两个生命周期函数可能运行在服务端也可能运行在客户端（因为是服务端渲染）
 在nuxt中不存在keep-alive和dekeep-alive生命周期，因为是服务端渲染的所以不存在组件的缓存
 
-![](attachments/Pasted image 20250522113533.png)
-![](Pasted image 20250522113747.png)
+### 服务端生命周期
+
+1. nuxtServerInit
+- store：状态仓库上下文
+- context：nuxt执行上下文
+```js
+nuxtServerInit(store,context){
+
+}
+```
+
