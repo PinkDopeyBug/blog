@@ -6,6 +6,12 @@ export const friends = [
     avatar: "https://zhenghaoyang.cn/avatar.jpg",
     desc: "老师，我太想进步了。",
   },
+  {
+    name: "Alive~o.0",
+    link: "https://alive0103.github.io/index.html",
+    avatar: "https://pic.imgdb.cn/item/66a088b2d9c307b7e9f0e792.jpg",
+    desc: "Alive~o.0の观猹录",
+  },
 ];
 
 // 性格
