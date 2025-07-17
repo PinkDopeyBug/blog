@@ -51,6 +51,8 @@ Nuxt框架提供了一种基于Node.js的服务端渲染方案SSR（Server Side 
 如果要每个页面单独的head配置可以在对应的页面中使用head函数配置，如果页面中没有head配置就会使用nuxt配置中的head
 - css
 全局的css文件，引入后的css文件全局生效
+- loading
+加载进度条，nuxt内置了loading进度条，如果需要使用外部的进度条需要将默认的禁用
 
 public属性下的是客户端和服务端都可以获取的，isServer或者isClient是只有服务端或只有客户端才可以获取。如果获取的不是自己有权访问的得到的结构是undefined
 在获取时从全局对象`config`中获取

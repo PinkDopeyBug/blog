@@ -7,6 +7,12 @@ export const friends = [
     desc: "老师，我太想进步了。",
   },
   {
+    name: "爱编程的大丙",
+    link: "https://subingwen.cn",
+    avatar: "https://subingwen.cn/images/comment.gif",
+    desc: "程序猿里边做饭比较好吃的一个讲师",
+  },
+  {
     name: "Alive~o.0",
     link: "https://alive0103.github.io/index.html",
     avatar: "https://pic.imgdb.cn/item/66a088b2d9c307b7e9f0e792.jpg",
@@ -82,7 +88,7 @@ export const tools = [
   { type: "NVM", icon: "logos:nvm" },
   { type: "Ant Design", icon: "devicon:antdesign" },
   { type: "Element", icon: "logos:element" },
-  { type:"Vercel", icon: "logos:vercel"},
+  { type: "Vercel", icon: "logos:vercel" },
   { type: "Obsidian", icon: "logos:obsidian-icon" },
   { type: "NodeMon", icon: "logos:nodemon" },
 ];
