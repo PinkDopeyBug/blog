@@ -6,4 +6,4 @@
 
 ## 协议
 
-本项目代码部分采用[MIT协议](LICENSE-MIT)开源，文本部分采用[CC BY 4.0协议](LICENSE-CC-BY)授权。
+本项目代码部分采用[MIT协议](LICENSE.txt)开源，文本部分采用[CC BY 4.0协议](LICENSE-CC-BY.txt)授权。
