@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/notes/前端/vue/7 Nuxt.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "7 Nuxt"
+              "title": "README"
             }
           }
         ]
@@ -171,13 +171,13 @@
   },
   "active": "c5bad6d9233fb37f",
   "lastOpenFiles": [
+    "docs/notes/前端/vue/7 Nuxt.md",
     "docs/notes/more/friends.md",
     "docs/notes/more/bulletin.md",
     "docs/notes/基础/设计模式/4、行为型模式.md",
     "docs/notes/基础/设计模式/3、结构型模式.md",
     "docs/notes/基础/设计模式/2、创建型模式.md",
     "docs/notes/基础/设计模式/index.md",
-    "docs/notes/前端/vue/7 Nuxt.md",
     "Pasted.md",
     "docs/常见问题/v-for中使用ref获取dom.md",
     "docs/常见问题/vscode.md",
