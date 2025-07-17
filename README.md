@@ -1,7 +1,9 @@
 # 个人博客
 
 使用框架为：[VuePress](https://vuepress.vuejs.org/)
+
 博客主题为：[vuepress-theme-plume](https://theme-plume.vuejs.press/)
+
 本项目fork自：[zhenghaoyang24/hoey-blog-plume: blog](https://github.com/zhenghaoyang24/hoey-blog-plume) 并在其上做的三开。
 
 ## 协议
