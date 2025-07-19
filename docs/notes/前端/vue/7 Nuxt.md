@@ -232,24 +232,15 @@ export const action={
 
 ### 服务端可客户端共有的生命周期
 后面的生命周期就是vue原本的生命周期
-
 1. beforeCreated
-
 2. created
-
 ### 客户端的生命周期
 1. beforeMount
-
 2. mounted
-
 3. beforeUpdate
-
 4. updated
-
 5. beforeUnMounted
-
 6. unMounted
-
 # 服务端不能使用localStorage和cookie的解决方案
 在服务端可以使用状态管理仓库，因此许多存储可以使用store代替
 
