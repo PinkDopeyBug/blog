@@ -1,7 +1,7 @@
 ---
-title: 7 Nuxt
+title: Nuxt
 createTime: 2025/06/10 18:17:50
-permalink: /front/vue/7/
+permalink: /front/nuxt/
 ---
 Nuxt框架提供了一种基于Node.js的服务端渲染方案SSR（Server Side Rendering），可以让Vue应用在服务器端进行染，从而提高页面的加载速度和SEO。I
 
@@ -65,9 +65,9 @@ public属性下的是客户端和服务端都可以获取的，isServer或者isC
 nuxt会检查当前项目根目录中的**pages**文件夹，根据其中的文件夹设置路由，并且路由名是pages文件夹下的子文件夹名字，跳转页面是子目录中的index.vue文件
 ```
 ├── pages/                     //页面目录
-|    ├── index/ 
+|    ├── index/
 │    |   └── index.vue         //主页
-|    └── video/ 
+|    └── video/
          └── video.vue         //视频页
 ```
 默认生效条件如下：页面名必须是pages、子目录中必须包含index文件、pages文件夹必须在根目录中等。
@@ -97,7 +97,10 @@ console.log(route.params.id)
 如果动态路由页面同级目录下有其他的页面文件则先精准匹配其他的页面路由，最后再匹配动态路由
 # SEO优化
 使用Nuxt最主要的是实现SEO优化，可以被搜索引擎搜索到
-要使用seo优化需要在App.vue中做设置
+
+## useHead
+在页面中使用useHead函数修改的内容仅生效于此页面，在此页面中会覆盖nuxt配置文件中的head属性
+
 - title：在搜索引擎中显示的标题
 - description：标题下的描述
 - keywords：搜索关键字
@@ -113,6 +116,42 @@ useSeoMeta({
 </script>
 ```
 
+## useSeoMeta
+以对象形式定义站点的 SEO 元数据标签，并提供完整的类型安全。
+
+## 模板组件
+除了函数，nuxt也提供了组件用于设置页面的头部标签
+如：
+- `<Title>`
+- `<Base>`
+- `<NoScript>`
+- `<Style>`
+- `<Meta>`
+- `<Link>`
+- `<Body>`
+- `<Html>` 
+- `<Head>`
+这些组件的首字母是大写的，不是原生 HTML 标签。
+```vue
+<script setup lang="ts">
+const title = ref('Hello World')
+</script>
+
+<template>
+  <div>
+    <Head>
+      <Title>{{ title }}</Title>
+      <Meta name="description" :content="title" />
+      <Style>
+      body { background-color: green; }
+      </Style>
+    </Head>
+
+    <h1>{{ title }}</h1>
+  </div>
+</template>
+
+```
 # 接口请求
 在nuxt项目中可以设置后端接口
 需要在特定文件夹下
@@ -128,10 +167,11 @@ export default defineEventHandler(()=>{
 ```
 
 ## 发送请求
-nuxt有封装好的请求函数，不需要使用axios
-```js
-const res=await useFetch('/api/user')
-```
+nuxt有封装好的请求函数
+
+- `$fetch`：数据被获取两次：一次在服务器（用于渲染 HTML），另一次在客户端（当 HTML 被激活时）。这可能会导致激活问题、增加交互时间等问题。适合仅从浏览器发起请求的情况
+- `useFetch` 是 `$fetch` 的封装，会确保请求在服务器上发生，并正确转发到浏览器。只获取一次数据。
+- `useAsyncData` 与 `useFetch` 类似，但提供更精细的控制。
 
 # 状态共享
 对于服务端渲染的代码，需要辨别当前运行环境是服务端还是客户端，
@@ -241,10 +281,144 @@ export const action={
 4. updated
 5. beforeUnMounted
 6. unMounted
+
+# nuxt3生命周期
+
+## 服务端
+1. Nitro初始化
+执行`/server/plugins`目录下的插件
+2. Nitro中间件
+执行`server/middleware/`目录下的中间件
+3. Nuxt初始化
+执行内置插件，如 Vue Router 和 `unhead`。
+执行`plugins/`目录中的自定义插件，包括无后缀的插件（如 `myPlugin.ts`）和带 `.server` 后缀的插件（如 `myServerPlugin.server.ts`）。
+4. 调用app:created钩子
+nuxt初始化完成后执行
+在nuxt配置中的hook字段中调用
+5. 路由验证
+执行页面组件中definePageMeta函数中定义了 `validate` 方法
+6. Nuxt应用中间件
+执行`middleware/`目录中的自定义中间件
+7. 渲染页面和组件
+执行要加载的组件中的代码
+渲染页面及其组件，并使用 `useFetch` 和 `useAsyncData` 获取任何所需的数据。
+8. app:rendered
+生成html
+获取所有所需数据并渲染组件后，Nuxt 将渲染的组件与 `unhead` 的设置相结合，生成完整的 HTML 文档。
+生成html文档后会调用钩子，在nuxt配置中的hook属性
+9. render::html
+发送html
+将html及其关联数据发送回客户端，完成 SSR 过程。
+
+## 客户端
+1. 初始化Nuxt并执行Nuxt应用插件
+`plugins/` 目录中的自定义插件，如无后缀的插件（如 `myPlugin.ts`）和带 `.client` 后缀的插件（如 `myClientPlugin.client.ts`），会在客户端执行。
+2. app:created
+初始化nuxt及其客户端应用插件完成后调用，可用于执行额外的逻辑。
+3. 路由验证
+此步骤与服务器端执行相同，如果 `definePageMeta` 函数中定义了 `validate` 方法，则会执行该方法。
+4. 执行Nuxt应用中间件
+Nuxt 中间件在服务器和客户端都运行。如果希望某些代码在特定环境中运行，可以考虑使用 `import.meta.client`（客户端）和 `import.meta.server`（服务器）进行拆分。
+5. 挂载vue应用前
+调用appbeforeMount钩子
+6. 挂载vue应用后
+调用app:mounted钩子
+7. 执行vue的生命周期
 # 服务端不能使用localStorage和cookie的解决方案
 在服务端可以使用状态管理仓库，因此许多存储可以使用store代替
 
 ## cookie-universal-nuxt
 使用模块提供的api就可以向正常使用cookie一样使用
 
+# 中间件
+中间件分为三种类型：
+1. 匿名（或内联）路由中间件，没有放置在 `middleware/` 目录中而是直接定义在使用它们的页面中。
+2. 命名中间件，放置在 `middleware/` 目录中，当在页面上使用时，会通过异步导入自动加载。（路由中间件的名称会规范化为短横线命名法，如： `someMiddleware` 会变为 `some-middleware`。）
+3. 全局中间件，放置在 `middleware/` 目录中（带有 `.global` 后缀），会在每次路由变化时自动运行。
+对于命名中间件和全局中间件它们调用的先后顺序是按照文件命名的排序调用的，如果要控制它们的调用顺序需要按编号命名
 
+# 预渲染
+nuxt使用的是Nitro服务端引擎
+配置预渲染需要两处配置
+
+1. Nitro服务器配置
+在 `nuxt.config` 文件中手动指定nitro在构建期间获取和预渲染的路由，或者忽略不希望预渲染的路由
+- crawLinks：是否开启预渲染爬虫无法发现的路由，如`/sitemap.xml`、`/robots.txt`
+- routes：预渲染的路由
+- ignore：忽略预渲染的路由
+```ts
+export default defineNuxtConfig({
+  nitro: {
+    prerender: {
+	    crawlLinks: true,
+      routes: ["/user/1", "/user/2","/sitemap.xml", "/robots.txt"],
+      ignore: ["/dynamic"],
+    },
+  },
+});
+```
+nitro.prerender属性也可以传入一个布尔值表示的意思是nitro.prerender.crawlLinks设置为true
+
+2. 路由规则配置
+```ts
+export default defineNuxtConfig({
+  routeRules: {
+    // 设置 prerender 为 true，配置其被预渲染
+    "/rss.xml": { prerender: true },
+    // 设置为 false，配置其跳过预渲染
+    "/this-DOES-NOT-get-prerendered": { prerender: false },
+    // /blog 下的所有内容都会被预渲染，只要它
+    // 从另一个页面链接过来
+    "/blog/**": { prerender: true },
+  },
+});
+
+```
+也可以在页面组件中使用`defineRouteRules`函数配置其所在页面的预渲染
+
+## 预渲染钩子
+
+### prerender:routes
+在预渲染之前调用此钩子，用于注册额外的路由。
+```ts
+export default defineNuxtConfig({
+  hooks: {
+    async "prerender:routes"(ctx) {
+      const { pages } = await fetch("https://api.some-cms.com/pages").then(
+        (res) => res.json(),
+      );
+      for (const page of pages) {
+        ctx.routes.add(`/${page.name}`);
+      }
+    },
+  },
+});
+```
+
+### prerender:generate
+预渲染期间为每个路由调用此钩子。可以对每个要预渲染的路由进行处理。
+```ts
+export default defineNuxtConfig({
+  nitro: {
+    hooks: {
+      "prerender:generate"(route) {
+        if (route.route?.includes("private")) {
+          route.skip = true;
+        }
+      },
+    },
+  },
+});
+
+```
+
+# 自动导入
+Nuxt会自动导入 `components\`、`composables/`、`utils/`目录中的内容。自动提供类型支持、IDE 自动补全和提示，并且**仅在生产代码中包含实际使用的内容**。
+建议禁用
+```ts
+export default defineNuxtConfig({
+  imports: {
+    autoImport: false
+  }
+})
+```

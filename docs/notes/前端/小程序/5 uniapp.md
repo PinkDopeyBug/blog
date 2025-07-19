@@ -1,7 +1,7 @@
 ---
-title: 8 uniapp
+title: 5 uniapp
 createTime: 2025/06/18 21:10:54
-permalink: /front/vue/8/
+permalink: /front/mini-program/5/
 ---
 uni-app是国人开发的基于vue语法,可以编译成各个小程序的项目,不过由于种类多,且小程序api经常更改,uniapp会有较多bug
 

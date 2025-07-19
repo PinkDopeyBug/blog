@@ -3,7 +3,7 @@ title: 1 配置
 createTime: 2025/06/22 10:25:08
 permalink: /tools/vscode/
 ---
-# C
+# C++配置
 ```json
 {
     // 使用 IntelliSense 了解相关属性。 

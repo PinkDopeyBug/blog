@@ -1,7 +1,7 @@
 ---
-title: 9 Vitest
+title: Vitest
 createTime: 2025/06/21 18:16:58
-permalink: /front/vue/9/
+permalink: /front/vitest/
 ---
 测试文件使用`.test.js`结尾，测试框架会自动识别这样结尾的文件当做测试运行
 

@@ -338,3 +338,90 @@ v-for的默认行为会尝试原地修改元素（就地复用）
 | readonly | plain-object or proxy | 对象          | 代理只能读取代理对象中的成员，不可修改                                                                                                                |
 | ref      | any                   | {value:...} | 对value的访问是响应式的，如果给value的值是一个对象，则会通过reactive函数进行代理，如果已经是代理，则直接使用代理。因为proxy只能代理对象无法代理基本数据类型，所以ref就会将所有的数据类型都封装到一个对象中，这样就可以使用proxy代理了 |
 | computed | function              | {value:...} | 当读取value值时，会根据情况决定是否要运行函数                                                                                                          |
+
+# 自定义指令
+自己定义的指令，可以封装一些dom操作，扩展额外功能
+
+指令的钩子函数有两个:
+- inserted会在指令所在元素被插入到页面中时触发
+- update会在指令的值修改的时候触发
+1. 全局注册
+```vue
+Vue.directive()'指令名',{
+	"inserted"(el){
+		//可以对 el标签，扩展额外功能
+		el.focus()
+	}
+})
+```
+
+2. 局部注册
+```vue
+directives:{
+	'指令名"：{
+		inserted () {
+			//可以对 el标签，扩展额外功能
+			el.focus()
+		}
+	}
+}
+```
+
+# 插槽
+
+让组件内部的一些结构支持自定义
+
+### 匿名插槽
+在定义组件的时候使用`<slot></slot>`标签占位
+在使用的时候将插入的内容使用自定义的标签报告就会把内容插入到slot的位置了
+```vue
+<MyDialog>内容</MyDialog>
+```
+
+### 具名插槽
+匿名插槽只有一个占位,如果有多个需要插槽的地方可以使用具名插槽
+若要定义具名插槽也是使用slot标签,不过需要加上name属性作以区分
+```vue
+<div>
+	<slot name="a"></slot>
+	<slot name="b"></slot>
+</div>
+```
+在使用时需要用template标签包裹内容,并使用v-slot命令表示插入哪个插槽中
+```vue
+<MyDialog>
+	<template v-slot:a>
+		大标题
+	</template>
+	<template v-slot:a>
+		内容文本
+	</template>
+</MyDialog>
+```
+
+v-slot可使用`#`代替
+### 默认值
+要将插槽设置默认值只需要将值放在slot标签内即可
+
+### 作用域插槽
+定义 slot插槽的同时是可以传值的。给插槽上可以绑定数据将来使用组件时可以用
+
+基本使用步骤：
+1. 给slot标签，以添加属性的方式传值
+```vue
+<slot :id="item.id" msg="测试文本"></slot>
+```
+
+2. 所有添加的属性,都会被收集到一个对象中
+```vue
+{ id: 3, msg:测试文本’}
+```
+
+3. 在template中,通过E#插槽名="obj"接收，默认插槽名为default
+```vue
+<MyTable :list="list">
+	<template #default="obj">
+		<button @click="del(obj.id)">删除</button>
+	</template>
+</MyTable>
+```

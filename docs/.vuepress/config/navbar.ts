@@ -31,12 +31,14 @@ export const navbar = defineNavbarConfig([
   {
     text: "前端",
     items: [
-      { text: "html", link: "/front/html/", icon: "devicon:html5" },
-      { text: "css", link: "/front/css/", icon: "devicon:css3" },
+      { text: "Html", link: "/front/html/", icon: "devicon:html5" },
+      { text: "CSS", link: "/front/css/", icon: "devicon:css3" },
       { text: "JavaScript", link: "/front/js/", icon: "material-icon-theme:javascript" },
       { text: "TypeScript", link: "/front/ts/", icon: "material-icon-theme:typescript" },
       { text: "Node", link: "/front/node/", icon: "material-icon-theme:nodejs-alt" },
       { text: "Vue", link: "/front/vue/", icon: "material-icon-theme:vue" },
+      { text: "Nuxt", link: "/front/nuxt/", icon: "logos:nuxt-icon" },
+      { text: "Vitest", link: "/front/vitest/", icon: "logos:vitest" },
       { text: "React", link: "/front/react/", icon: "material-icon-theme:react" },
       { text: "小程序", link: "/front/mini-program/", icon: "tabler:brand-miniprogram" },
       { text: "工程化", link: "/front/engineering/", icon: "logos:webpack" },
